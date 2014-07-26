@@ -1,10 +1,6 @@
+//Run: gradle
+
 apply plugin : 'application'
 sourceSets.main.java.srcDir 'src'
-mainClassName = 'exceptionquiz.Main'
-
-dependencies {
-    compile 'org.springframework:spring-context:3.2.4.RELEASE'
-}
-repositories {
-    mavenCentral()
-}
+//mainClassName = 'exceptionquiz.Main'
+defaultTasks('run')
