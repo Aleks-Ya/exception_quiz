@@ -2,5 +2,13 @@
 
 apply plugin : 'application'
 sourceSets.main.java.srcDir 'src'
-//mainClassName = 'exceptionquiz.Main'
+sourceSets.test.java.srcDir 'test'
+mainClassName = 'exceptionquiz.ExceptionQuiz'
 defaultTasks('run')
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+repositories {
+    mavenCentral()
+}
