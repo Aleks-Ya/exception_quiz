@@ -32,7 +32,7 @@ class IsChecked extends AbstractQuestion {
     public String getAnswerText() {
         return isChecked ?
                 exceptionClass.getSimpleName() + " is checked exception"
-                : exceptionClass.getSimpleName() + " is UN checked exception";
+                : exceptionClass.getSimpleName() + " is unchecked exception";
     }
 
     private boolean isCheckedException(Class clazz) {

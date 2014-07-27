@@ -18,7 +18,7 @@ public class IsCheckedTest {
         ExcData excData = new ExcDataImpl(ArrayIndexOutOfBoundsException.class, "-");
         Question q = new IsChecked(excData);
         assertEquals("Is ArrayIndexOutOfBoundsException checked exception?", q.getQuestionText());
-        assertEquals("ArrayIndexOutOfBoundsException is UN checked exception", q.getAnswerText());
+        assertEquals("ArrayIndexOutOfBoundsException is unchecked exception", q.getAnswerText());
         assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
 
@@ -45,7 +45,7 @@ public class IsCheckedTest {
         ExcData excData = new ExcDataImpl(ClassCastException.class, "-");
         Question q = new IsChecked(excData);
         assertEquals("Is ClassCastException checked exception?", q.getQuestionText());
-        assertEquals("ClassCastException is UN checked exception", q.getAnswerText());
+        assertEquals("ClassCastException is unchecked exception", q.getAnswerText());
         assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
 
@@ -54,7 +54,7 @@ public class IsCheckedTest {
         ExcData excData = new ExcDataImpl(RuntimeException.class, "-");
         Question q = new IsChecked(excData);
         assertEquals("Is RuntimeException checked exception?", q.getQuestionText());
-        assertEquals("RuntimeException is UN checked exception", q.getAnswerText());
+        assertEquals("RuntimeException is unchecked exception", q.getAnswerText());
         assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
 }
