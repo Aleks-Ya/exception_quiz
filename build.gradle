@@ -1,4 +1,9 @@
 //Run: gradle
+//Run: sudo gradle installLinux
+
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.Path
 
 apply plugin: 'java'
 sourceSets.main.java.srcDir 'src'
@@ -11,9 +16,11 @@ group = "exceptionquize"
 version = "2.0"
 jar.manifest.attributes "Main-Class": "exceptionquiz.ExceptionQuiz"
 
-def installDir = System.properties['user.home'] + '/exception_quiz'
+final def installDir = '/opt/exception_quiz'
+final def shName = 'run.sh'
+final def shInstall = new File(installDir, shName)
 
-task installLinux(dependsOn: jar, type: Copy) {
+task installLinux(dependsOn: build, type: Copy) {
     from jar.archivePath.parent
     into installDir
     filesMatching('*.sh') {
@@ -21,11 +28,20 @@ task installLinux(dependsOn: jar, type: Copy) {
     }
 
     doFirst() {
-        File file = new File(jar.archivePath.parent, 'run.sh')
-        file.withWriter { out ->
+        File shFile = new File(jar.archivePath.parent, shName)
+        shFile.withWriter { out ->
             out.writeLine('#!/bin/bash')
-            out.writeLine("java -jar $jar.archiveName")
+            out.writeLine("java -jar $installDir/$jar.archiveName")
         }
+    }
+
+    doLast() {
+        Path link = Paths.get('/usr/bin/exception_quiz');
+        Path target = shInstall.toPath()
+        if (Files.exists(link)) {
+            Files.delete(link)
+        }
+        Files.createSymbolicLink(link, target)
     }
 }
 

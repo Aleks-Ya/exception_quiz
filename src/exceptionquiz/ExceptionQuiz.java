@@ -6,6 +6,7 @@ import exceptionquiz.question.QuestionRandomImpl;
 
 /**
  * Основное приложение.
+ * todo Исключить повтор вопроса в течение N заданий
  */
 public class ExceptionQuiz {
     public static void main(String[] args) {
