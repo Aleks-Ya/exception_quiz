@@ -1,6 +1,7 @@
 package exceptionquiz;
 
 import exceptionquiz.excset.Jcp1ExcSet;
+import exceptionquiz.inquirer.ConsoleEnquirer;
 import exceptionquiz.question.QuestionRandomImpl;
 
 /**
@@ -10,7 +11,7 @@ public class ExceptionQuiz {
     public static void main(String[] args) {
         Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
         QuestionRandom generator = new QuestionRandomImpl(excSet);
-        Inquirer inquirer = null;
+        Inquirer inquirer = new ConsoleEnquirer();
         while (true) {
             Question question = generator.randomQuestion();
             inquirer.showQuestionText(question);
