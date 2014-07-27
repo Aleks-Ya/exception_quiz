@@ -11,9 +11,22 @@ group = "exceptionquize"
 version = "2.0"
 jar.manifest.attributes "Main-Class": "exceptionquiz.ExceptionQuiz"
 
+def installDir = System.properties['user.home'] + '/exception_quiz'
+
 task installLinux(dependsOn: jar, type: Copy) {
-    from jar.archivePath
-    into System.properties['user.home'] + '/exception_quiz'
+    from jar.archivePath.parent
+    into installDir
+    filesMatching('*.sh') {
+        fileMode = 0755
+    }
+
+    doFirst() {
+        File file = new File(jar.archivePath.parent, 'run.sh')
+        file.withWriter { out ->
+            out.writeLine('#!/bin/bash')
+            out.writeLine("java -jar $jar.archiveName")
+        }
+    }
 }
 
 dependencies {
