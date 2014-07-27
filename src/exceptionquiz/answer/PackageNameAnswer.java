@@ -5,9 +5,10 @@ import exceptionquiz.Answer;
 /**
  * Ответ: название пакета.
  */
-public class PackageNameAnswer extends NameAbstractAnswer {
+public class PackageNameAnswer extends AbstractAnswer {
 
     public PackageNameAnswer(Class clazz) {
-        rightAnswer = clazz.getPackage().getName();
+        variants.add(clazz.getPackage().getName());
+        ignoreCase = false;
     }
 }

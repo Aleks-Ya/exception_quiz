@@ -14,6 +14,7 @@ public class PackageAndClassNameAnswerTest {
     public void testIsRight() throws Exception {
         Answer answer = new PackageAndClassNameAnswer(EOFException.class);
         assertTrue(answer.isRight("java.io.EOFException"));
+        assertFalse(answer.isRight("java.io.EofException"));
         assertFalse(answer.isRight("java.io.IOException"));
         assertFalse(answer.isRight(""));
         assertFalse(answer.isRight(null));

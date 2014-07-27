@@ -15,6 +15,7 @@ public class PackageNameAnswerTest {
         Answer answer = new PackageNameAnswer(IOException.class);
         assertTrue(answer.isRight(" java.io "));
         assertFalse(answer.isRight("java.net"));
+        assertFalse(answer.isRight("java.IO"));
         assertFalse(answer.isRight(""));
         assertFalse(answer.isRight(null));
     }

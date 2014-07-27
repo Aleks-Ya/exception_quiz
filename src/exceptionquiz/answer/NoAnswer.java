@@ -3,7 +3,7 @@ package exceptionquiz.answer;
 /**
  * Правильный ответ "Нет".
  */
-public class NoAnswer extends YesNoAbstractAnswer {
+public class NoAnswer extends AbstractAnswer {
     private static final NoAnswer instance = new NoAnswer();
 
     public NoAnswer() {
