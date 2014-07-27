@@ -1,8 +1,9 @@
 package exceptionquiz.question;
 
-import exceptionquiz.AnswerType;
 import exceptionquiz.ExcData;
 import exceptionquiz.Question;
+import exceptionquiz.answer.NoAnswer;
+import exceptionquiz.answer.YesAnswer;
 import exceptionquiz.excdata.ExcDataImpl;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class IsCheckedTest {
         Question q = new IsChecked(excData);
         assertEquals("Is ArrayIndexOutOfBoundsException checked exception?", q.getQuestionText());
         assertEquals("ArrayIndexOutOfBoundsException is UN checked exception", q.getAnswerText());
-        assertEquals(AnswerType.YES_NO, q.getAnswerType());
+        assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
 
     @Test
@@ -27,7 +28,7 @@ public class IsCheckedTest {
         Question q = new IsChecked(excData);
         assertEquals("Is EOFException checked exception?", q.getQuestionText());
         assertEquals("EOFException is checked exception", q.getAnswerText());
-        assertEquals(AnswerType.YES_NO, q.getAnswerType());
+        assertEquals(YesAnswer.getInstance(), q.getRightAnswer());
     }
 
     @Test
@@ -36,6 +37,24 @@ public class IsCheckedTest {
         Question q = new IsChecked(excData);
         assertEquals("Is Throwable checked exception?", q.getQuestionText());
         assertEquals("Throwable is checked exception", q.getAnswerText());
-        assertEquals(AnswerType.YES_NO, q.getAnswerType());
+        assertEquals(YesAnswer.getInstance(), q.getRightAnswer());
+    }
+
+    @Test
+    public void classCastException() {
+        ExcData excData = new ExcDataImpl(ClassCastException.class, "-");
+        Question q = new IsChecked(excData);
+        assertEquals("Is ClassCastException checked exception?", q.getQuestionText());
+        assertEquals("ClassCastException is UN checked exception", q.getAnswerText());
+        assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
+    }
+
+    @Test
+    public void runtimeException() {
+        ExcData excData = new ExcDataImpl(RuntimeException.class, "-");
+        Question q = new IsChecked(excData);
+        assertEquals("Is RuntimeException checked exception?", q.getQuestionText());
+        assertEquals("RuntimeException is UN checked exception", q.getAnswerText());
+        assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
 }

@@ -24,7 +24,8 @@ public class ConsoleEnquirer implements Inquirer {
     }
 
     @Override
-    public String takeAnswerText() {
+    public String takeAnswerText(String prompt) {
+        console.printf(prompt);
         return console.readLine();
     }
 

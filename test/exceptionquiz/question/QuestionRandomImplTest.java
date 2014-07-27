@@ -15,7 +15,7 @@ public class QuestionRandomImplTest {
     public void testRandomQuestion() throws Exception {
         ExcSet excSet = Jcp1ExcSet.getInstance();
         QuestionRandom rnd = new QuestionRandomImpl(excSet);
-        Set<Class> wasQuestionClass = new HashSet<Class>(4);
+        Set<Class> wasQuestionClass = new HashSet<>(4);
         while (wasQuestionClass.size() != 4) {
             Question q = rnd.randomQuestion();
             wasQuestionClass.add(q.getClass());

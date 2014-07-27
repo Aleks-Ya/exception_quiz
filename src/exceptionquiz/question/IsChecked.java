@@ -1,19 +1,26 @@
 package exceptionquiz.question;
 
-import exceptionquiz.AnswerType;
 import exceptionquiz.ExcData;
-import exceptionquiz.Question;
+import exceptionquiz.answer.NoAnswer;
+import exceptionquiz.answer.YesAnswer;
 
 /**
  * Вопрос.
  * Известно: класс исключения.
  * Вопрос: проверяемое или непроверяемое исключение?
  */
-public class IsChecked implements Question {
-    private final Class exceptionClass;
+public class IsChecked extends AbstractQuestion {
+    private final boolean isChecked;
 
     public IsChecked(ExcData excData) {
-        this.exceptionClass = excData.getExceptionClass();
+        super(excData.getExceptionClass());
+        isChecked = isCheckedException(exceptionClass);
+        if (isChecked) {
+            rightAnswer = YesAnswer.getInstance();
+        } else {
+            rightAnswer = NoAnswer.getInstance();
+        }
+
     }
 
     @Override
@@ -23,22 +30,26 @@ public class IsChecked implements Question {
 
     @Override
     public String getAnswerText() {
-        boolean isChecked = true;
-        Class clazz = exceptionClass.getSuperclass();
-        while (clazz != Object.class) {
-            clazz = clazz.getSuperclass();
-            if (clazz == RuntimeException.class) {
-                isChecked = false;
-                break;
-            }
-        }
         return isChecked ?
                 exceptionClass.getSimpleName() + " is checked exception"
                 : exceptionClass.getSimpleName() + " is UN checked exception";
     }
 
+    private boolean isCheckedException(Class clazz) {
+        boolean isChecked = true;
+        Class superclass = clazz;
+        while (superclass != Object.class) {
+            if (superclass == RuntimeException.class) {
+                isChecked = false;
+                break;
+            }
+            superclass = superclass.getSuperclass();
+        }
+        return isChecked;
+    }
+
     @Override
-    public AnswerType getAnswerType() {
-        return AnswerType.YES_NO;
+    public String getPrompt() {
+        return "y/n:";
     }
 }

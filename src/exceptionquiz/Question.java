@@ -6,7 +6,9 @@ package exceptionquiz;
 public interface Question {
     String getQuestionText();
 
+    String getPrompt();
+
     String getAnswerText();
 
-    AnswerType getAnswerType();
+    Answer getRightAnswer();
 }

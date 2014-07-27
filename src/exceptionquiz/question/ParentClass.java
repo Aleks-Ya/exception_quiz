@@ -1,33 +1,27 @@
 package exceptionquiz.question;
 
-import exceptionquiz.AnswerType;
 import exceptionquiz.ExcData;
-import exceptionquiz.Question;
+import exceptionquiz.answer.PackageAndClassNameAnswer;
 
 /**
  * Вопрос.
  * Известно: класс исключения.
  * Вопрос: родительский класс?
  */
-public class ParentClass implements Question {
-    private final Class exceptionClass;
+public class ParentClass extends ClassNameAbstractQuestion {
 
     public ParentClass(ExcData excData) {
-        exceptionClass = excData.getExceptionClass();
+        super(excData);
+        rightAnswer = new PackageAndClassNameAnswer(exceptionClass.getSuperclass());
     }
 
     @Override
     public String getQuestionText() {
-        return String.format("What is parent package and class of %s?", exceptionClass.getSimpleName());
+        return String.format("What is parent of %s?", exceptionClass.getSimpleName());
     }
 
     @Override
     public String getAnswerText() {
         return exceptionClass.getSuperclass().getName();
-    }
-
-    @Override
-    public AnswerType getAnswerType() {
-        return AnswerType.ENTER_TEXT;
     }
 }

@@ -1,19 +1,18 @@
 package exceptionquiz.question;
 
-import exceptionquiz.AnswerType;
 import exceptionquiz.ExcData;
-import exceptionquiz.Question;
+import exceptionquiz.answer.PackageNameAnswer;
 
 /**
  * Вопрос.
  * Известно: класс исключения.
  * Вопрос: в какой пакет помещено исключение?
  */
-public class WhichPackage implements Question {
-    private final Class exceptionClass;
+public class WhichPackage extends ClassNameAbstractQuestion {
 
     public WhichPackage(ExcData excData) {
-        this.exceptionClass = excData.getExceptionClass();
+        super(excData);
+        rightAnswer = new PackageNameAnswer(exceptionClass);
     }
 
     @Override
@@ -27,7 +26,7 @@ public class WhichPackage implements Question {
     }
 
     @Override
-    public AnswerType getAnswerType() {
-        return AnswerType.ENTER_TEXT;
+    public String getPrompt() {
+        return "Package name:";
     }
 }

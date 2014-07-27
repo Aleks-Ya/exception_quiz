@@ -6,7 +6,6 @@ import exceptionquiz.question.QuestionRandomImpl;
 
 /**
  * Основное приложение.
- * todo Сделать "приглашение" у ввода в командной строке и писать в нем "package and class name"
  */
 public class ExceptionQuiz {
     public static void main(String[] args) {
@@ -16,8 +15,8 @@ public class ExceptionQuiz {
         while (true) {
             Question question = generator.randomQuestion();
             inquirer.showQuestionText(question);
-            String answer = inquirer.takeAnswerText();
-            if (question.getAnswerText().equals(answer)) {
+            String answer = inquirer.takeAnswerText(question.getPrompt());
+            if (question.getRightAnswer().isRight(answer)) {
                 inquirer.showRightAnswerText("RIGHT!");
             } else {
                 inquirer.showRightAnswerText("MISTAKE: " + question.getAnswerText());
