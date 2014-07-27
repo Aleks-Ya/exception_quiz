@@ -1,19 +1,21 @@
 package exceptionquiz.question;
 
 import exceptionquiz.AnswerType;
+import exceptionquiz.ExcData;
 import exceptionquiz.Question;
+import exceptionquiz.excdata.ExcDataImpl;
 import org.junit.Test;
 
 import java.io.EOFException;
-import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class IsCheckedTest {
 
     @Test
     public void unchecked() {
-        Question q = new IsChecked(ArrayIndexOutOfBoundsException.class);
+        ExcData excData = new ExcDataImpl(ArrayIndexOutOfBoundsException.class, "-");
+        Question q = new IsChecked(excData);
         assertEquals("Is ArrayIndexOutOfBoundsException checked exception?", q.getQuestionText());
         assertEquals("ArrayIndexOutOfBoundsException is UN checked exception", q.getAnswerText());
         assertEquals(AnswerType.YES_NO, q.getAnswerType());
@@ -21,7 +23,8 @@ public class IsCheckedTest {
 
     @Test
     public void checked() {
-        Question q = new IsChecked(EOFException.class);
+        ExcData excData = new ExcDataImpl(EOFException.class, "-");
+        Question q = new IsChecked(excData);
         assertEquals("Is EOFException checked exception?", q.getQuestionText());
         assertEquals("EOFException is checked exception", q.getAnswerText());
         assertEquals(AnswerType.YES_NO, q.getAnswerType());

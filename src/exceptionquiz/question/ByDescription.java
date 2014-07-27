@@ -1,6 +1,7 @@
 package exceptionquiz.question;
 
 import exceptionquiz.AnswerType;
+import exceptionquiz.ExcData;
 import exceptionquiz.Question;
 
 /**
@@ -10,23 +11,20 @@ import exceptionquiz.Question;
  */
 public class ByDescription implements Question {
 
-    private final String description;
-    private final Class exceptionClass;
+    private final ExcData excData;
 
-    public ByDescription(String description, Class exceptionClass) {
-
-        this.description = description;
-        this.exceptionClass = exceptionClass;
+    public ByDescription(ExcData excData) {
+        this.excData = excData;
     }
 
     @Override
     public String getQuestionText() {
-        return String.format("Which exception is used for \"%s\"?", description);
+        return String.format("Which exception is used for \"%s\"?", excData.getExceptionDescription());
     }
 
     @Override
     public String getAnswerText() {
-        return exceptionClass.getName();
+        return excData.getExceptionClass().getName();
     }
 
     @Override

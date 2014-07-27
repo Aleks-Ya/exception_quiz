@@ -1,6 +1,7 @@
 package exceptionquiz.question;
 
 import exceptionquiz.AnswerType;
+import exceptionquiz.ExcData;
 import exceptionquiz.Question;
 
 /**
@@ -11,8 +12,8 @@ import exceptionquiz.Question;
 public class WhichPackage implements Question {
     private final Class exceptionClass;
 
-    public WhichPackage(Class exceptionClass) {
-        this.exceptionClass = exceptionClass;
+    public WhichPackage(ExcData excData) {
+        this.exceptionClass = excData.getExceptionClass();
     }
 
     @Override
