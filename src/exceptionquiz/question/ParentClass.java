@@ -8,10 +8,10 @@ import exceptionquiz.answer.PackageAndClassNameAnswer;
  * Известно: класс исключения.
  * Вопрос: родительский класс?
  */
-public class ParentClass extends ClassNameAbstractQuestion {
+public class ParentClass extends AbstractQuestion {
 
     public ParentClass(ExcData excData) {
-        super(excData);
+        super(excData.getExceptionClass());
         rightAnswer = new PackageAndClassNameAnswer(exceptionClass.getSuperclass());
     }
 
@@ -23,5 +23,10 @@ public class ParentClass extends ClassNameAbstractQuestion {
     @Override
     public String getAnswerText() {
         return exceptionClass.getSuperclass().getName();
+    }
+
+    @Override
+    public String getPrompt() {
+        return "Package and class name:";
     }
 }

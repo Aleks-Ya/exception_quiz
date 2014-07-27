@@ -8,11 +8,11 @@ import exceptionquiz.answer.PackageAndClassNameAnswer;
  * Известно: описание исключения.
  * Вопрос: пакет и название исключения?
  */
-public class ByDescription extends ClassNameAbstractQuestion {
+public class ByDescription extends AbstractQuestion {
     private final String excDescription;
 
     public ByDescription(ExcData excData) {
-        super(excData);
+        super(excData.getExceptionClass());
         rightAnswer = new PackageAndClassNameAnswer(exceptionClass);
         excDescription = excData.getExceptionDescription();
     }
@@ -25,5 +25,10 @@ public class ByDescription extends ClassNameAbstractQuestion {
     @Override
     public String getAnswerText() {
         return exceptionClass.getName();
+    }
+
+    @Override
+    public String getPrompt() {
+        return "Package and class name:";
     }
 }
