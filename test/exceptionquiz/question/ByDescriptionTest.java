@@ -16,7 +16,7 @@ public class ByDescriptionTest {
         ExcData excData = new ExcDataImpl(EOFException.class, "Signals that an end of file or end of stream has been reached " +
                 "unexpectedly during input");
         Question q = new ByDescription(excData);
-        assertEquals("Which exception is used for \"Signals that an end of file or end of stream has been reached " +
+        assertEquals("Which exception (package and name) is used for \"Signals that an end of file or end of stream has been reached " +
                 "unexpectedly during input\"?", q.getQuestionText());
         assertEquals("java.io.EOFException", q.getAnswerText());
         assertEquals(AnswerType.ENTER_TEXT, q.getAnswerType());

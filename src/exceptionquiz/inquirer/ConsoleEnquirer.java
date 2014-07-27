@@ -30,6 +30,6 @@ public class ConsoleEnquirer implements Inquirer {
 
     @Override
     public void showRightAnswerText(String answerText) {
-        console.printf("%s%n", answerText);
+        console.printf("%s%n%n", answerText);
     }
 }

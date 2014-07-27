@@ -18,7 +18,7 @@ public class ParentClass implements Question {
 
     @Override
     public String getQuestionText() {
-        return String.format("What is parent class of %s?", exceptionClass.getSimpleName());
+        return String.format("What is parent package and class of %s?", exceptionClass.getSimpleName());
     }
 
     @Override

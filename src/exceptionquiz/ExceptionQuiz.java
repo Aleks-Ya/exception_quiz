@@ -6,6 +6,7 @@ import exceptionquiz.question.QuestionRandomImpl;
 
 /**
  * Основное приложение.
+ * todo Сделать "приглашение" у ввода в командной строке и писать в нем "package and class name"
  */
 public class ExceptionQuiz {
     public static void main(String[] args) {

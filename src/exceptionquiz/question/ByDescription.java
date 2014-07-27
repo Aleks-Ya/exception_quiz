@@ -19,7 +19,7 @@ public class ByDescription implements Question {
 
     @Override
     public String getQuestionText() {
-        return String.format("Which exception is used for \"%s\"?", excData.getExceptionDescription());
+        return String.format("Which exception (package and name) is used for \"%s\"?", excData.getExceptionDescription());
     }
 
     @Override
