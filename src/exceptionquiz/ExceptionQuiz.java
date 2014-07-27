@@ -8,7 +8,7 @@ import exceptionquiz.question.QuestionRandomImpl;
  */
 public class ExceptionQuiz {
     public static void main(String[] args) {
-        Jcp1ExcSet excSet = new Jcp1ExcSet();
+        Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
         QuestionRandom generator = new QuestionRandomImpl(excSet);
         Inquirer inquirer = null;
         while (true) {

@@ -13,9 +13,10 @@ import java.util.Set;
  * Набор исключений, встречающийся в экзамене Java Programmer I.
  */
 public class Jcp1ExcSet implements ExcSet {
-    final static Set<ExcData> set = new HashSet<ExcData>();
+    private static final Jcp1ExcSet instance = new Jcp1ExcSet();
+    private final Set<ExcData> set = new HashSet<>();
 
-    static {
+    protected Jcp1ExcSet() {
         add(Throwable.class, "This class is the superclass of all errors and exceptions in the Java language");
         add(Exception.class, "This class and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to catch.");
         add(FileNotFoundException.class, "Signals that an attempt to open the file denoted by a specified pathname has failed");
@@ -40,7 +41,11 @@ public class Jcp1ExcSet implements ExcSet {
         return set;
     }
 
-    protected static void add(Class excClass, String excDescription) {
+    protected void add(Class excClass, String excDescription) {
         set.add(new ExcDataImpl(excClass, excDescription));
+    }
+
+    public static Jcp1ExcSet getInstance() {
+        return instance;
     }
 }

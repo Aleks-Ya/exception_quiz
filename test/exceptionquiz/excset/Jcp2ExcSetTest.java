@@ -9,7 +9,7 @@ public class Jcp2ExcSetTest {
 
     @Test
     public void getExcs() throws Exception {
-        ExcSet set = new Jcp1ExcSet();
-        assertEquals(17, set.getExcs().size());
+        ExcSet set = Jcp2ExcSet.getInstance();
+        assertEquals(18, set.getExcs().size());
     }
 }

@@ -13,7 +13,7 @@ public class QuestionRandomImplTest {
 
     @Test(timeout = 1000)
     public void testRandomQuestion() throws Exception {
-        ExcSet excSet = new Jcp1ExcSet();
+        ExcSet excSet = Jcp1ExcSet.getInstance();
         QuestionRandom rnd = new QuestionRandomImpl(excSet);
         Set<Class> wasQuestionClass = new HashSet<Class>(4);
         while (wasQuestionClass.size() != 4) {
