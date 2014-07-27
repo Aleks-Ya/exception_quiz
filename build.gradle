@@ -8,6 +8,10 @@ targetCompatibility = JavaVersion.VERSION_1_7
 mainClassName = 'exceptionquiz.ExceptionQuiz'
 defaultTasks('run')
 
+group = "ru.yaal.project"
+version = "2.0"
+jar.manifest.attributes "Main-Class": "exceptionquiz.ExceptionQuiz"
+
 dependencies {
     testCompile 'junit:junit:4.11'
 }
