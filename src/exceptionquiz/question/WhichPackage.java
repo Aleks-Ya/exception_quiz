@@ -8,7 +8,7 @@ import exceptionquiz.answer.PackageNameAnswer;
  * Известно: класс исключения.
  * Вопрос: в какой пакет помещено исключение?
  */
-public class WhichPackage extends AbstractQuestion {
+class WhichPackage extends AbstractQuestion {
 
     public WhichPackage(ExcData excData) {
         super(excData.getExceptionClass());

@@ -12,12 +12,12 @@ import java.util.Set;
  * Генератор случайных исключений.
  */
 public class QuestionRandomImpl implements QuestionRandom {
-    final ExcData[] excDatas;
-    final Random random = new Random();
+    private final ExcData[] excDatas;
+    private final Random random = new Random();
     /**
      * Количество классов Вопросов.
      */
-    final static private int QUESTION_COUNT = 4;
+    private static final int QUESTION_COUNT = 4;
 
     public QuestionRandomImpl(ExcSet set) {
         Set<ExcData> excs = set.getExcs();

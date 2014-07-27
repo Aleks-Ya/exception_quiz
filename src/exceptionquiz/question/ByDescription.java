@@ -8,7 +8,7 @@ import exceptionquiz.answer.PackageAndClassNameAnswer;
  * Известно: описание исключения.
  * Вопрос: пакет и название исключения?
  */
-public class ByDescription extends AbstractQuestion {
+class ByDescription extends AbstractQuestion {
     private final String excDescription;
 
     public ByDescription(ExcData excData) {

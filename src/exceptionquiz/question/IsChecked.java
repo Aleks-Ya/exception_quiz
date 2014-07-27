@@ -9,7 +9,7 @@ import exceptionquiz.answer.YesAnswer;
  * Известно: класс исключения.
  * Вопрос: проверяемое или непроверяемое исключение?
  */
-public class IsChecked extends AbstractQuestion {
+class IsChecked extends AbstractQuestion {
     private final boolean isChecked;
 
     public IsChecked(ExcData excData) {

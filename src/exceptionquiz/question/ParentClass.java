@@ -8,7 +8,7 @@ import exceptionquiz.answer.PackageAndClassNameAnswer;
  * Известно: класс исключения.
  * Вопрос: родительский класс?
  */
-public class ParentClass extends AbstractQuestion {
+class ParentClass extends AbstractQuestion {
 
     public ParentClass(ExcData excData) {
         super(excData.getExceptionClass());
