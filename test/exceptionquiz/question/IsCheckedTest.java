@@ -29,4 +29,13 @@ public class IsCheckedTest {
         assertEquals("EOFException is checked exception", q.getAnswerText());
         assertEquals(AnswerType.YES_NO, q.getAnswerType());
     }
+
+    @Test
+    public void throwable() {
+        ExcData excData = new ExcDataImpl(Throwable.class, "-");
+        Question q = new IsChecked(excData);
+        assertEquals("Is Throwable checked exception?", q.getQuestionText());
+        assertEquals("Throwable is checked exception", q.getAnswerText());
+        assertEquals(AnswerType.YES_NO, q.getAnswerType());
+    }
 }

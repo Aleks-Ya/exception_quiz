@@ -25,13 +25,13 @@ public class IsChecked implements Question {
     public String getAnswerText() {
         boolean isChecked = true;
         Class clazz = exceptionClass.getSuperclass();
-        do {
+        while (clazz != Object.class) {
             clazz = clazz.getSuperclass();
             if (clazz == RuntimeException.class) {
                 isChecked = false;
                 break;
             }
-        } while (clazz != Object.class);
+        }
         return isChecked ?
                 exceptionClass.getSimpleName() + " is checked exception"
                 : exceptionClass.getSimpleName() + " is UN checked exception";
