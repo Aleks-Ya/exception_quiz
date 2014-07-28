@@ -7,6 +7,7 @@ import exceptionquiz.question.QuestionRandomImpl;
 /**
  * Основное приложение.
  * todo Исключить повтор вопроса в течение N заданий
+ * todo Подсчитать время тренировки, количество вопросов, время на один вопрос, а также выводить номер вопроса.
  */
 public class ExceptionQuiz {
     public static void main(String[] args) {
