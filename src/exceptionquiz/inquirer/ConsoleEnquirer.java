@@ -2,6 +2,7 @@ package exceptionquiz.inquirer;
 
 import exceptionquiz.Inquirer;
 import exceptionquiz.Question;
+import exceptionquiz.Statistic;
 
 import java.io.Console;
 
@@ -10,6 +11,7 @@ import java.io.Console;
  */
 public class ConsoleEnquirer implements Inquirer {
     private final Console console;
+    private Statistic statistic;
 
     public ConsoleEnquirer() {
         console = System.console();
@@ -18,15 +20,28 @@ public class ConsoleEnquirer implements Inquirer {
         }
     }
 
+    public ConsoleEnquirer(Statistic statistic) {
+        this();
+        this.statistic = statistic;
+    }
+
     @Override
     public void showQuestionText(Question question) {
-        console.printf("%s%n", question.getQuestionText());
+        if (statistic != null) {
+            console.printf("%d %s%n", statistic.getNextQuestionNumbers(), question.getQuestionText());
+        } else {
+            console.printf("%s%n", question.getQuestionText());
+        }
     }
 
     @Override
     public String takeAnswerText(String prompt) {
         console.printf(prompt);
-        return console.readLine();
+        String answer = console.readLine();
+        if (statistic != null) {
+            statistic.incFinishedQuestions();
+        }
+        return answer;
     }
 
     @Override
