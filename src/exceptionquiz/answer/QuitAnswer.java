@@ -8,8 +8,9 @@ public class QuitAnswer extends AbstractAnswer {
 
     public QuitAnswer() {
         variants.add("q");
-        variants.add("exit");
         variants.add("quit");
+        variants.add("e");
+        variants.add("exit");
     }
 
     public static QuitAnswer getInstance() {

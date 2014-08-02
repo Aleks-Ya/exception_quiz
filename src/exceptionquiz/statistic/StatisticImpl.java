@@ -7,7 +7,8 @@ import java.util.Date;
 public class StatisticImpl implements Statistic {
     private Date startTime;
     private Date finishTime;
-    private int questionCounter;
+    private int rightAnswers;
+    private int mistakeAnswers;
 
     @Override
     public void setStartTime(Date startTime) {
@@ -31,26 +32,53 @@ public class StatisticImpl implements Statistic {
 
     @Override
     public int getDuration() {
-        return (int) (finishTime.getTime() - startTime.getTime()) / 1000;
+        return (int) (getFinishTime().getTime() - getStartTime().getTime()) / 1000;
     }
 
     @Override
-    public int getTimePerQuestion() {
-        return getDuration() / questionCounter;
+    public int getDurationPerQuestion() {
+        int questions = getFinishedQuestions();
+        int duration = getDuration();
+        return questions != 0 ? duration / questions : duration;
     }
 
     @Override
-    public void incFinishedQuestions() {
-        questionCounter++;
+    public void incRightQuestions() {
+        rightAnswers++;
     }
 
     @Override
-    public int getNextQuestionNumbers() {
-        return questionCounter + 1;
+    public void incMistakeQuestions() {
+        mistakeAnswers++;
+    }
+
+    @Override
+    public int getNextQuestionNumber() {
+        return getFinishedQuestions() + 1;
     }
 
     @Override
     public int getFinishedQuestions() {
-        return questionCounter;
+        return getRightAnswers() + getMistakeAnswers();
+    }
+
+    @Override
+    public int getRightAnswers() {
+        return rightAnswers;
+    }
+
+    @Override
+    public int getMistakeAnswers() {
+        return mistakeAnswers;
+    }
+
+    @Override
+    public byte getRightPercent() {
+        return (byte) (getRightAnswers() *100 / getFinishedQuestions());
+    }
+
+    @Override
+    public byte getMistakePercent() {
+        return (byte) (100 - getRightPercent());
     }
 }

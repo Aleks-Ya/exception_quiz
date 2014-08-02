@@ -8,8 +8,11 @@ import java.util.Date;
 public interface Statistic {
 
     void setStartTime(Date startTime);
+
     void setFinishTime(Date finishTime);
+
     Date getStartTime();
+
     Date getFinishTime();
 
     /**
@@ -20,11 +23,21 @@ public interface Statistic {
     /**
      * Среднее время на один вопрос в секундах.
      */
-    int getTimePerQuestion();
+    int getDurationPerQuestion();
 
-    void incFinishedQuestions();
+    void incRightQuestions();
 
-    int getNextQuestionNumbers();
+    void incMistakeQuestions();
+
+    int getNextQuestionNumber();
 
     int getFinishedQuestions();
+
+    int getRightAnswers();
+
+    int getMistakeAnswers();
+
+    byte getRightPercent();
+
+    byte getMistakePercent();
 }

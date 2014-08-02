@@ -13,7 +13,7 @@ targetCompatibility = JavaVersion.VERSION_1_7
 defaultTasks('build')
 
 group = "exceptionquize"
-version = "2.0"
+version = "2.1"
 jar.manifest.attributes "Main-Class": "exceptionquiz.ExceptionQuiz"
 
 final def installDir = '/opt/exception_quiz'
@@ -40,11 +40,11 @@ task installLinux(dependsOn: build, type: Copy) {
         Path target = shInstall.toPath()
         Files.deleteIfExists(link)
         Files.createSymbolicLink(link, target)
-    }
 }
+    }
 
 dependencies {
-    testCompile 'junit:junit:4.11'
+    testCompile 'junit:junit:4.11', 'joda-time:joda-time:2.4', 'com.googlecode.catch-exception:catch-exception:1.2.0'
 }
 repositories {
     mavenCentral()

@@ -9,4 +9,8 @@ public interface Inquirer {
     String takeAnswerText(String prompt);
 
     void showRightAnswerText(String answerText);
+
+    void showStatistic(Statistic statistic);
+
+    void showInfoMessage(String message);
 }
