@@ -12,6 +12,8 @@ import java.util.Date;
  * Основное приложение.
  * todo Исключить повтор вопроса в течение N заданий
  * todo Печатать версию приложения во время работы
+ * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
+ * todo Длительность тренировки выводить в минутах и секундах
  */
 public class ExceptionQuiz {
     private static final Statistic STATISTIC = new StatisticImpl();
