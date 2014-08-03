@@ -74,11 +74,13 @@ public class StatisticImpl implements Statistic {
 
     @Override
     public byte getRightPercent() {
-        return (byte) (getRightAnswers() *100 / getFinishedQuestions());
+        int questions = getFinishedQuestions();
+        return questions > 0 ? (byte) (getRightAnswers() * 100 / questions) : 0;
     }
 
     @Override
     public byte getMistakePercent() {
-        return (byte) (100 - getRightPercent());
+        int questions = getFinishedQuestions();
+        return questions > 0 ? (byte) (100 - getRightPercent()) : 0;
     }
 }

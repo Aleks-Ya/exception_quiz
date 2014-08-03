@@ -1,5 +1,6 @@
 package exceptionquiz.inquirer;
 
+import exceptionquiz.Formatter;
 import exceptionquiz.Inquirer;
 import exceptionquiz.Question;
 import exceptionquiz.Statistic;
@@ -12,6 +13,7 @@ import java.io.Console;
 public class ConsoleEnquirer implements Inquirer {
     private final Console console;
     private Statistic statistic;
+    private Formatter<Statistic> formatter;
 
     public ConsoleEnquirer() {
         console = System.console();
@@ -20,9 +22,10 @@ public class ConsoleEnquirer implements Inquirer {
         }
     }
 
-    public ConsoleEnquirer(Statistic statistic) {
+    public ConsoleEnquirer(Statistic statistic, Formatter<Statistic> formatter) {
         this();
         this.statistic = statistic;
+        this.formatter = formatter;
     }
 
     @Override
@@ -47,12 +50,7 @@ public class ConsoleEnquirer implements Inquirer {
 
     @Override
     public void showStatistic(Statistic statistic) {
-        console.printf("%nSTATISTIC:%n");
-        console.printf("Duration (sec): %d%n", statistic.getDuration());
-        console.printf("Duration per question (sec): %d%n", statistic.getDurationPerQuestion());
-        console.printf("Right question count: %d (%d%%)%n", statistic.getRightAnswers(), statistic.getRightPercent());
-        console.printf("Mistake question count: %d (%d%%)%n", statistic.getMistakeAnswers(), statistic.getMistakePercent());
-        console.printf("Total question count: %d%n%n", statistic.getFinishedQuestions());
+        console.printf("%s", formatter.format(statistic));
     }
 
     @Override

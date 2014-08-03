@@ -2,6 +2,7 @@ package exceptionquiz;
 
 import exceptionquiz.answer.QuitAnswer;
 import exceptionquiz.excset.Jcp1ExcSet;
+import exceptionquiz.formatter.StatisticFormatter;
 import exceptionquiz.inquirer.ConsoleEnquirer;
 import exceptionquiz.question.QuestionRandomImpl;
 import exceptionquiz.statistic.StatisticImpl;
@@ -13,31 +14,31 @@ import java.util.Date;
  * todo Исключить повтор вопроса в течение N заданий
  * todo Печатать версию приложения во время работы
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
- * todo Длительность тренировки выводить в минутах и секундах
  */
 public class ExceptionQuiz {
-    private static final Statistic STATISTIC = new StatisticImpl();
     private static final Answer QUIT_ANSWER = new QuitAnswer();
 
     public static void main(String[] args) {
-        STATISTIC.setStartTime(new Date());
+        final Statistic statistic = new StatisticImpl();
+        statistic.setStartTime(new Date());
         Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
         QuestionRandom generator = new QuestionRandomImpl(excSet);
-        Inquirer inquirer = new ConsoleEnquirer(STATISTIC);
+        Formatter<Statistic> formatter = new StatisticFormatter();
+        Inquirer inquirer = new ConsoleEnquirer(statistic, formatter);
         inquirer.showInfoMessage("\n\nEXCEPTION QUIZ \nEnter \"q\" for exit\n");
         while (true) {
             Question question = generator.randomQuestion();
             inquirer.showQuestionText(question);
             String answer = inquirer.takeAnswerText(question.getPrompt());
             if (QUIT_ANSWER.isRight(answer)) {
-                STATISTIC.setFinishTime(new Date());
-                inquirer.showStatistic(STATISTIC);
+                statistic.setFinishTime(new Date());
+                inquirer.showStatistic(statistic);
                 System.exit(0);
             } else if (question.getRightAnswer().isRight(answer)) {
-                STATISTIC.incRightQuestions();
+                statistic.incRightQuestions();
                 inquirer.showRightAnswerText("RIGHT!");
             } else {
-                STATISTIC.incMistakeQuestions();
+                statistic.incMistakeQuestions();
                 inquirer.showRightAnswerText("MISTAKE: " + question.getAnswerText());
             }
         }

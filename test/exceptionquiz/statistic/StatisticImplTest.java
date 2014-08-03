@@ -88,4 +88,10 @@ public class StatisticImplTest {
         assertEquals(75, st.getRightPercent());
         assertEquals(25, st.getMistakePercent());
     }
+
+    @Test
+    public void getPercentZero() throws Exception {
+        assertEquals(0, st.getRightPercent());
+        assertEquals(0, st.getMistakePercent());
+    }
 }
