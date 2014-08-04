@@ -12,9 +12,9 @@ import java.util.Set;
 public class QuestionRandomImplTest {
 
     @Test(timeout = 1000)
-    public void testRandomQuestion() throws Exception {
+    public void randomQuestion() throws Exception {
         ExcSet excSet = Jcp1ExcSet.getInstance();
-        QuestionRandom rnd = new QuestionRandomImpl(excSet);
+        QuestionRandom rnd = new QuestionRandomImpl(excSet, null);
         Set<Class> wasQuestionClass = new HashSet<>(4);
         while (wasQuestionClass.size() != 4) {
             Question q = rnd.randomQuestion();

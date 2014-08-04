@@ -13,7 +13,7 @@ targetCompatibility = JavaVersion.VERSION_1_7
 defaultTasks('build')
 
 group = "exceptionquize"
-version = 2.3
+version = 2.4
 jar.manifest.attributes('Main-Class': 'exceptionquiz.ExceptionQuiz', 'version' : version)
 
 final def installDir = '/opt/exception_quiz'

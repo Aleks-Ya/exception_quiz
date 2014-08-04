@@ -1,6 +1,7 @@
 package exceptionquiz;
 
 import exceptionquiz.answer.QuitAnswer;
+import exceptionquiz.duplicate.QuestionDuplicateBlocker;
 import exceptionquiz.excset.Jcp1ExcSet;
 import exceptionquiz.formatter.StatisticFormatter;
 import exceptionquiz.inquirer.ConsoleEnquirer;
@@ -12,7 +13,6 @@ import java.util.Date;
 
 /**
  * Основное приложение.
- * todo Исключить повтор вопроса в течение N заданий
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
  */
 public class ExceptionQuiz {
@@ -22,7 +22,8 @@ public class ExceptionQuiz {
         final Statistic statistic = new StatisticImpl();
         statistic.setStartTime(new Date());
         Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
-        QuestionRandom generator = new QuestionRandomImpl(excSet);
+        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
+        QuestionRandom generator = new QuestionRandomImpl(excSet, blocker);
         Formatter<Statistic> formatter = new StatisticFormatter();
         final ManifestReader manifest = new ManifestReaderImpl();
         String message = String.format("\n\nEXCEPTION QUIZ v%s\nEnter \"q\" for exit\n", manifest.getVersion());

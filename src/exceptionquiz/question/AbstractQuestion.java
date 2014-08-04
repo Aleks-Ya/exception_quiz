@@ -18,4 +18,16 @@ abstract class AbstractQuestion implements Question {
     public Answer getRightAnswer() {
         return rightAnswer;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Question) {
+            Question o = (Question) obj;
+            return o.getQuestionText().equals(getQuestionText())
+                    && o.getAnswerText().equals(getAnswerText())
+                    && o.getPrompt().equals(getPrompt())
+                    && o.getRightAnswer().equals(getRightAnswer());
+        }
+        return false;
+    }
 }

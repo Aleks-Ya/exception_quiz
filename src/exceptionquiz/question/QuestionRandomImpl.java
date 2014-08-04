@@ -1,5 +1,6 @@
 package exceptionquiz.question;
 
+import exceptionquiz.DuplicateBlocker;
 import exceptionquiz.ExcData;
 import exceptionquiz.ExcSet;
 import exceptionquiz.Question;
@@ -14,18 +15,33 @@ import java.util.Set;
 public class QuestionRandomImpl implements QuestionRandom {
     private final ExcData[] excDatas;
     private final Random random = new Random();
+    private DuplicateBlocker<Question> blocker;
+
     /**
      * Количество классов Вопросов.
      */
     private static final int QUESTION_COUNT = 4;
 
-    public QuestionRandomImpl(ExcSet set) {
+    public QuestionRandomImpl(ExcSet set, DuplicateBlocker<Question> blocker) {
         Set<ExcData> excs = set.getExcs();
         excDatas = excs.toArray(new ExcData[excs.size()]);
+        this.blocker = blocker;
     }
 
     @Override
     public Question randomQuestion() {
+        if (blocker != null) {
+            Question q;
+            do {
+                q = generate();
+            } while (blocker.isDuplicate(q));
+            return q;
+        } else {
+            return generate();
+        }
+    }
+
+    private Question generate() {
         int rndQuestion = random.nextInt(QUESTION_COUNT);
         int rndExc = random.nextInt(excDatas.length);
         ExcData excData = excDatas[rndExc];
