@@ -43,4 +43,9 @@ abstract class AbstractAnswer implements Answer {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName();
+    }
 }

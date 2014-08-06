@@ -11,4 +11,9 @@ public class PackageNameAnswer extends AbstractAnswer {
         variants.add(clazz.getPackage().getName());
         ignoreCase = false;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s[%s]", getClass().getSimpleName(), variants.get(0));
+    }
 }
