@@ -30,4 +30,17 @@ abstract class AbstractAnswer implements Answer {
         }
         return false;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AbstractAnswer) {
+            AbstractAnswer o = (AbstractAnswer) obj;
+            if ((ignoreCase == o.ignoreCase)
+                    && variants.size() == o.variants.size()
+                    && o.variants.containsAll(variants)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
