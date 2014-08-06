@@ -4,7 +4,6 @@ import exceptionquiz.Formatter;
 import exceptionquiz.Statistic;
 import exceptionquiz.statistic.StatisticImpl;
 import org.joda.time.DateTime;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
@@ -12,29 +11,10 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 public class StatisticFormatterTest {
-    private static final int DURATION = 80;
-    private Date startTime;
-    private Date finishTime;
-
-    @Before
-    public void before() {
-        DateTime start = new DateTime();
-        startTime = start.toDate();
-        finishTime = start.plusSeconds(DURATION).toDate();
-    }
+    private final Formatter<Statistic> formatter = new StatisticFormatter();
 
     @Test
-    public void testFormat() throws Exception {
-        Statistic statistic = new StatisticImpl();
-        statistic.setStartTime(startTime);
-        statistic.setFinishTime(finishTime);
-        statistic.incRightQuestions();
-        statistic.incRightQuestions();
-        statistic.incRightQuestions();
-        statistic.incMistakeQuestions();
-
-        Formatter<Statistic> formatter = new StatisticFormatter();
-        String actual = formatter.format(statistic);
+    public void testFormat() {
         String expected = "\nSTATISTIC:\n" +
                 "Duration (min:sec):          1:20\n" +
                 "Duration per question (sec): 20\n" +
@@ -42,6 +22,44 @@ public class StatisticFormatterTest {
                 "Mistake question count:      1 (25%)\n" +
                 "Total question count:        4\n\n";
 
+        String actual = formatter.format(generateStatistic(80, 3, 1));
+
         assertEquals(expected, actual);
+    }
+
+    /**
+     * Если у "Duration (min:sec)" количество секунд <10, то должен быть ведущий 0.
+     */
+    @Test
+    public void durationSecondLess10() {
+        String expected = "\nSTATISTIC:\n" +
+                "Duration (min:sec):          1:05\n" +
+                "Duration per question (sec): 8\n" +
+                "Right question count:        8 (100%)\n" +
+                "Mistake question count:      0 (0%)\n" +
+                "Total question count:        8\n\n";
+
+        String actual = formatter.format(generateStatistic(65, 8, 0));
+
+        assertEquals(expected, actual);
+    }
+
+    private static Statistic generateStatistic(int duration, int rightCount, int mistakeCount) {
+        DateTime start = new DateTime();
+        Date startTime = start.toDate();
+        Date finishTime = start.plusSeconds(duration).toDate();
+
+        Statistic statistic = new StatisticImpl();
+        statistic.setStartTime(startTime);
+        statistic.setFinishTime(finishTime);
+
+        for (int i = 0; i < rightCount; i++) {
+            statistic.incRightQuestions();
+        }
+        for (int i = 0; i < mistakeCount; i++) {
+            statistic.incMistakeQuestions();
+        }
+
+        return statistic;
     }
 }

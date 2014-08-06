@@ -15,7 +15,7 @@ public class StatisticFormatter implements Formatter<Statistic> {
         int durationMin = duration / SECONDS_IN_MINUTE;
         int durationSec = duration % SECONDS_IN_MINUTE;
         return "\nSTATISTIC:\n"
-                + String.format("Duration (min:sec):          %d:%d%n", durationMin, durationSec)
+                + String.format("Duration (min:sec):          %d:%02d%n", durationMin, durationSec)
                 + String.format("Duration per question (sec): %d%n", statistic.getDurationPerQuestion())
                 + String.format("Right question count:        %d (%d%%)%n", statistic.getRightAnswers(), statistic.getRightPercent())
                 + String.format("Mistake question count:      %d (%d%%)%n", statistic.getMistakeAnswers(), statistic.getMistakePercent())
