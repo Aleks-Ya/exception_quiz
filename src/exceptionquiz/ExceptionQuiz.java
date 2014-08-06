@@ -14,7 +14,6 @@ import java.util.Date;
 /**
  * Основное приложение.
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
- * todo Сделать Error непроверяемыми исключениями
  * todo хороший unit-test для Question#equals
  * todo Хороший unit-тест для QuestionDuplicateBlocker
  */

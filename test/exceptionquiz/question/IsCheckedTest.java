@@ -57,4 +57,13 @@ public class IsCheckedTest {
         assertEquals("RuntimeException is unchecked exception", q.getAnswerText());
         assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
     }
+
+    @Test
+    public void errorsAreUnchecked() {
+        ExcData excData = new ExcDataImpl(ExceptionInInitializerError.class, "-");
+        Question q = new IsChecked(excData);
+        assertEquals("Is ExceptionInInitializerError checked exception?", q.getQuestionText());
+        assertEquals("ExceptionInInitializerError is unchecked exception", q.getAnswerText());
+        assertEquals(NoAnswer.getInstance(), q.getRightAnswer());
+    }
 }

@@ -39,7 +39,7 @@ class IsChecked extends AbstractQuestion {
         boolean isChecked = true;
         Class superclass = clazz;
         while (superclass != Object.class) {
-            if (superclass == RuntimeException.class) {
+            if (superclass == RuntimeException.class || superclass == Error.class) {
                 isChecked = false;
                 break;
             }
