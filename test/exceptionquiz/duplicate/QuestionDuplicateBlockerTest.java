@@ -2,47 +2,44 @@ package exceptionquiz.duplicate;
 
 import exceptionquiz.DuplicateBlocker;
 import exceptionquiz.Question;
-import exceptionquiz.answer.NoAnswer;
-import exceptionquiz.answer.PackageNameAnswer;
-import exceptionquiz.answer.YesAnswer;
+import exceptionquiz.QuestionRandom;
+import exceptionquiz.excset.Jcp1ExcSet;
+import exceptionquiz.question.QuestionRandomImpl;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class QuestionDuplicateBlockerTest {
 
     @Test
-    public void isDuplicate() throws Exception {
-        Question q1 = mock(Question.class);
-        when(q1.getAnswerText()).thenReturn("answer_1");
-        when(q1.getPrompt()).thenReturn("prompt_1");
-        when(q1.getQuestionText()).thenReturn("question_1");
-        when(q1.getRightAnswer()).thenReturn(YesAnswer.getInstance());
+    public void isDuplicate() {
+        int blockerSize = 5;
+        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker(blockerSize);
+        QuestionRandom generator = new QuestionRandomImpl(Jcp1ExcSet.getInstance(), blocker);
+        int questionCount = 10000;
+        List<Question> questions = new ArrayList<>(questionCount);
+        for (int i = 0; i < questionCount; i++) {
+            questions.add(generator.randomQuestion());
+        }
+        assertEquals(questionCount, questions.size());
 
-        Question q2 = mock(Question.class);
-        when(q2.getAnswerText()).thenReturn("answer_2");
-        when(q2.getPrompt()).thenReturn("prompt_2");
-        when(q2.getQuestionText()).thenReturn("question_2");
-        when(q2.getRightAnswer()).thenReturn(NoAnswer.getInstance());
-
-        Question q3 = mock(Question.class);
-        when(q3.getAnswerText()).thenReturn("answer_3");
-        when(q3.getPrompt()).thenReturn("prompt_3");
-        when(q3.getQuestionText()).thenReturn("question_3");
-        when(q3.getRightAnswer()).thenReturn(new PackageNameAnswer(Class.class));
-
-        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker(2);
-        assertFalse(blocker.isDuplicate(q1));
-        assertTrue(blocker.isDuplicate(q1));
-        assertFalse(blocker.isDuplicate(q2));
-        assertTrue(blocker.isDuplicate(q2));
-        assertTrue(blocker.isDuplicate(q1));
-        assertFalse(blocker.isDuplicate(q3));
-        assertTrue(blocker.isDuplicate(q3));
-        assertFalse(blocker.isDuplicate(q1));
-        assertTrue(blocker.isDuplicate(q1));
+        int assertCount = 0;
+        for (int i = 0; i < questions.size(); i++) {
+            Question current = questions.get(i);
+            for (int q = 1; q <= blockerSize; q++) {
+                int beforeNum = i - q;
+                if (beforeNum >= 0) {
+                    Question before = questions.get(beforeNum);
+                    assertNotEquals(current, before);
+                    assertCount++;
+                }
+            }
+        }
+        final int expectedAssertCount = questionCount * 5 - 5 - 4 - 3 - 2 - 1;
+        assertEquals(expectedAssertCount, assertCount);
     }
 }

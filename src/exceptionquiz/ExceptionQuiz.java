@@ -14,7 +14,6 @@ import java.util.Date;
 /**
  * Основное приложение.
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
- * todo Хороший unit-тест для QuestionDuplicateBlocker
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
