@@ -49,3 +49,16 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'sonar-runner'
+sonarRunner {
+    sonarProperties {
+        property "sonar.projectKey", 'exception_quiz'
+        property 'sonar.projectName', 'Exception Quiz'
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.jdbc.url", "jdbc:postgresql://localhost/sonar"
+        property "sonar.jdbc.driverClassName", "org.postgresql.Driver"
+        property "sonar.jdbc.username", "sonar"
+        property "sonar.jdbc.password", "sonar"
+    }
+}
