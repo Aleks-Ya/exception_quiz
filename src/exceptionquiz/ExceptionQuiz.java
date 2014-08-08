@@ -18,6 +18,9 @@ import java.util.Date;
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
 
+    private ExceptionQuiz() {
+    }
+
     public static void main(String[] args) {
         final Statistic statistic = new StatisticImpl();
         statistic.setStartTime(new Date());
