@@ -17,18 +17,20 @@ abstract class AbstractAnswer implements Answer {
         if (answer != null) {
             String trimmed = answer.trim();
             for (String variant : variants) {
-                if (ignoreCase) {
-                    if (variant.equalsIgnoreCase(trimmed)) {
-                        return true;
-                    }
-                } else {
-                    if (variant.equals(trimmed)) {
-                        return true;
-                    }
+                if (isEquals(variant, trimmed, ignoreCase)) {
+                    return true;
                 }
             }
         }
         return false;
+    }
+
+    private boolean isEquals(String str1, String str2, boolean ignoreCase) {
+        if (ignoreCase) {
+            return str1.equalsIgnoreCase(str2);
+        } else {
+            return str1.equals(str2);
+        }
     }
 
     @Override
