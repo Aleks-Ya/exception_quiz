@@ -10,19 +10,19 @@ import java.io.Console;
 /**
  * Опрос пользователя через консоль.
  */
-public class ConsoleEnquirer implements Inquirer {
+public class ConsoleInquirer implements Inquirer {
     private final Console console;
     private Statistic statistic;
     private Formatter<Statistic> formatter;
 
-    public ConsoleEnquirer() {
+    public ConsoleInquirer() {
         console = System.console();
         if (console == null) {
             throw new IllegalStateException("Console is not available. Run from console.");
         }
     }
 
-    public ConsoleEnquirer(Statistic statistic, Formatter<Statistic> formatter) {
+    public ConsoleInquirer(Statistic statistic, Formatter<Statistic> formatter) {
         this();
         this.statistic = statistic;
         this.formatter = formatter;

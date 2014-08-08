@@ -4,7 +4,7 @@ import exceptionquiz.answer.QuitAnswer;
 import exceptionquiz.duplicate.QuestionDuplicateBlocker;
 import exceptionquiz.excset.Jcp1ExcSet;
 import exceptionquiz.formatter.StatisticFormatter;
-import exceptionquiz.inquirer.ConsoleEnquirer;
+import exceptionquiz.inquirer.ConsoleInquirer;
 import exceptionquiz.manifest.ManifestReaderImpl;
 import exceptionquiz.question.QuestionRandomImpl;
 import exceptionquiz.statistic.StatisticImpl;
@@ -30,7 +30,7 @@ public class ExceptionQuiz {
         Formatter<Statistic> formatter = new StatisticFormatter();
         final ManifestReader manifest = new ManifestReaderImpl();
         String message = String.format("\n\nEXCEPTION QUIZ v%s\nEnter \"q\" for exit\n", manifest.getVersion());
-        Inquirer inquirer = new ConsoleEnquirer(statistic, formatter);
+        Inquirer inquirer = new ConsoleInquirer(statistic, formatter);
         inquirer.showInfoMessage(message);
         while (true) {
             Question question = generator.randomQuestion();
