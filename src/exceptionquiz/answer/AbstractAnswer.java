@@ -45,6 +45,11 @@ abstract class AbstractAnswer implements Answer {
     }
 
     @Override
+    public int hashCode() {
+        return variants.hashCode();
+    }
+
+    @Override
     public String toString() {
         return getClass().getSimpleName();
     }

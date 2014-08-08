@@ -30,4 +30,9 @@ abstract class AbstractQuestion implements Question {
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return exceptionClass.hashCode();
+    }
 }
