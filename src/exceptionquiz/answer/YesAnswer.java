@@ -4,7 +4,7 @@ package exceptionquiz.answer;
  * Правильный ответ "Да".
  */
 public class YesAnswer extends AbstractAnswer {
-    private static final YesAnswer instance = new YesAnswer();
+    private static final YesAnswer INSTANCE = new YesAnswer();
 
     private YesAnswer() {
         variants.add("yes");
@@ -14,6 +14,6 @@ public class YesAnswer extends AbstractAnswer {
     }
 
     public static YesAnswer getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }

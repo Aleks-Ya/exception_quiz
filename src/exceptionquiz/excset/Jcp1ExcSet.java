@@ -13,7 +13,7 @@ import java.util.Set;
  * Набор исключений, встречающийся в экзамене Java Programmer I.
  */
 public class Jcp1ExcSet implements ExcSet {
-    private static final Jcp1ExcSet instance = new Jcp1ExcSet();
+    private static final Jcp1ExcSet INSTANCE = new Jcp1ExcSet();
     private final Set<ExcData> set = new HashSet<>();
 
     protected Jcp1ExcSet() {
@@ -46,6 +46,6 @@ public class Jcp1ExcSet implements ExcSet {
     }
 
     public static Jcp1ExcSet getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }
