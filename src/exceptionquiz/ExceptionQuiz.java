@@ -36,7 +36,7 @@ public class ExceptionQuiz {
             if (QUIT_ANSWER.isRight(answer)) {
                 statistic.setFinishTime(new Date());
                 inquirer.showStatistic(statistic);
-                System.exit(0);
+                break;
             } else if (question.getRightAnswer().isRight(answer)) {
                 statistic.incRightQuestions();
                 inquirer.showRightAnswerText("RIGHT!");
