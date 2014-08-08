@@ -1,7 +1,5 @@
 package exceptionquiz.answer;
 
-import exceptionquiz.Answer;
-
 /**
  * Ответ: название пакета.
  */
