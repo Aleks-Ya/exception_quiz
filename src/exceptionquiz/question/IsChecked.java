@@ -36,16 +36,16 @@ class IsChecked extends AbstractQuestion {
     }
 
     private boolean isCheckedException(Class clazz) {
-        boolean isChecked = true;
+        boolean checked = true;
         Class superclass = clazz;
         while (superclass != Object.class) {
             if (superclass == RuntimeException.class || superclass == Error.class) {
-                isChecked = false;
+                checked = false;
                 break;
             }
             superclass = superclass.getSuperclass();
         }
-        return isChecked;
+        return checked;
     }
 
     @Override
