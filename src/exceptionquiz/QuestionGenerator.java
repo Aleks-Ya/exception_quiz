@@ -3,6 +3,6 @@ package exceptionquiz;
 /**
  * Генератор вопросов.
  */
-public interface QuestionRandom {
+public interface QuestionGenerator {
     Question randomQuestion();
 }

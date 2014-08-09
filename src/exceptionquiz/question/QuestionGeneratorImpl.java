@@ -1,10 +1,7 @@
 package exceptionquiz.question;
 
-import exceptionquiz.DuplicateBlocker;
-import exceptionquiz.ExcData;
-import exceptionquiz.ExcSet;
-import exceptionquiz.Question;
-import exceptionquiz.QuestionRandom;
+import exceptionquiz.*;
+import exceptionquiz.QuestionGenerator;
 
 import java.util.Random;
 import java.util.Set;
@@ -12,7 +9,7 @@ import java.util.Set;
 /**
  * Генератор случайных исключений.
  */
-public class QuestionRandomImpl implements QuestionRandom {
+public class QuestionGeneratorImpl implements QuestionGenerator {
     private final ExcData[] excDatas;
     private final Random random = new Random();
     private DuplicateBlocker<Question> blocker;
@@ -22,7 +19,7 @@ public class QuestionRandomImpl implements QuestionRandom {
      */
     private static final int QUESTION_COUNT = 4;
 
-    public QuestionRandomImpl(ExcSet set, DuplicateBlocker<Question> blocker) {
+    public QuestionGeneratorImpl(ExcSet set, DuplicateBlocker<Question> blocker) {
         Set<ExcData> excs = set.getExcs();
         excDatas = excs.toArray(new ExcData[excs.size()]);
         this.blocker = blocker;

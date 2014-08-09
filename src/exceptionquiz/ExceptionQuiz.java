@@ -6,7 +6,7 @@ import exceptionquiz.excset.Jcp1ExcSet;
 import exceptionquiz.formatter.StatisticFormatter;
 import exceptionquiz.inquirer.ConsoleInquirer;
 import exceptionquiz.manifest.ManifestReaderImpl;
-import exceptionquiz.question.QuestionRandomImpl;
+import exceptionquiz.question.QuestionGeneratorImpl;
 import exceptionquiz.statistic.StatisticImpl;
 
 import java.util.Date;
@@ -15,8 +15,7 @@ import java.util.Date;
  * Основное приложение.
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
  * todo Ограничить повторение одинаковых типов вопросов 2мя повторами.
- * todo Приоритизировать исключения, чтобы более сложные повторялись чаще 
- *      (NumberFormatException, ExceptionInInitializerError, NoClassDefError, ClassNotFoundException, OutOfMemoryError).
+ * todo Приоритизировать исключения, чтобы более сложные повторялись чаще (NumberFormatException, ExceptionInInitializerError, NoClassDefError, ClassNotFoundException, OutOfMemoryError).
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
@@ -29,7 +28,7 @@ public class ExceptionQuiz {
         statistic.setStartTime(new Date());
         Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
         DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
-        QuestionRandom generator = new QuestionRandomImpl(excSet, blocker);
+        QuestionGenerator generator = new QuestionGeneratorImpl(excSet, blocker);
         Formatter<Statistic> formatter = new StatisticFormatter();
         final ManifestReader manifest = new ManifestReaderImpl();
         String message = String.format("\n\nEXCEPTION QUIZ v%s\nEnter \"q\" for exit\n", manifest.getVersion());

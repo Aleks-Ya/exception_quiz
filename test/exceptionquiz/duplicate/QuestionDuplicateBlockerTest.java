@@ -2,9 +2,9 @@ package exceptionquiz.duplicate;
 
 import exceptionquiz.DuplicateBlocker;
 import exceptionquiz.Question;
-import exceptionquiz.QuestionRandom;
+import exceptionquiz.QuestionGenerator;
 import exceptionquiz.excset.Jcp1ExcSet;
-import exceptionquiz.question.QuestionRandomImpl;
+import exceptionquiz.question.QuestionGeneratorImpl;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class QuestionDuplicateBlockerTest {
     public void isDuplicate() {
         int blockerSize = 5;
         DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker(blockerSize);
-        QuestionRandom generator = new QuestionRandomImpl(Jcp1ExcSet.getInstance(), blocker);
+        QuestionGenerator generator = new QuestionGeneratorImpl(Jcp1ExcSet.getInstance(), blocker);
         int questionCount = 10000;
         List<Question> questions = new ArrayList<>(questionCount);
         for (int i = 0; i < questionCount; i++) {
