@@ -16,6 +16,7 @@ import java.util.Date;
  * todo Сохранять лог ошибок в файл для повторения и предлагать открыть после выхода
  * todo Ограничить повторение одинаковых типов вопросов 2мя повторами.
  * todo Приоритизировать исключения, чтобы более сложные повторялись чаще (NumberFormatException, ExceptionInInitializerError, NoClassDefError, ClassNotFoundException, OutOfMemoryError).
+ * todo Покрыть API консоли оберткой и протестировать ConsoleInquirer
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
