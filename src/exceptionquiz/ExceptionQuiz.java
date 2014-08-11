@@ -17,6 +17,7 @@ import java.util.Date;
  * todo Ограничить повторение одинаковых типов вопросов 2мя повторами.
  * todo Приоритизировать исключения, чтобы более сложные повторялись чаще (NumberFormatException, ExceptionInInitializerError, NoClassDefError, ClassNotFoundException, OutOfMemoryError).
  * todo Покрыть API консоли оберткой и протестировать ConsoleInquirer
+ * todo При 0 отвеченных вопросов выводить продолжительность на вопрос 0. Сейчас: Duration per question (sec): 2
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
