@@ -2,7 +2,6 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.plugin.exception.ExcData;
-import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,8 +13,8 @@ public class AbstractQuestionTest {
 
     @Test
     public void equalsByDescription() {
-        ExcData data1 = new ExcDataImpl(IOException.class, "description1");
-        ExcData data2 = new ExcDataImpl(IOException.class, "description2");
+        ExcData data1 = new ExcData(IOException.class, "description1");
+        ExcData data2 = new ExcData(IOException.class, "description2");
         Question q1 = new ByDescription(data1);
         Question q2 = new ByDescription(data2);
         Question q3 = new ByDescription(data1);
@@ -26,8 +25,8 @@ public class AbstractQuestionTest {
 
     @Test
     public void equalsIsChecked() {
-        ExcData data1 = new ExcDataImpl(IOException.class, "description");
-        ExcData data2 = new ExcDataImpl(IllegalArgumentException.class, "description");
+        ExcData data1 = new ExcData(IOException.class, "description");
+        ExcData data2 = new ExcData(IllegalArgumentException.class, "description");
         Question q1 = new IsChecked(data1);
         Question q2 = new IsChecked(data2);
         Question q3 = new IsChecked(data1);
@@ -38,8 +37,8 @@ public class AbstractQuestionTest {
 
     @Test
     public void equalsParentClass() {
-        ExcData data1 = new ExcDataImpl(IOException.class, "description");
-        ExcData data2 = new ExcDataImpl(IllegalArgumentException.class, "description");
+        ExcData data1 = new ExcData(IOException.class, "description");
+        ExcData data2 = new ExcData(IllegalArgumentException.class, "description");
         Question q1 = new ParentClass(data1);
         Question q2 = new ParentClass(data2);
         Question q3 = new ParentClass(data1);
@@ -50,8 +49,8 @@ public class AbstractQuestionTest {
 
     @Test
     public void equalsWhichPackage() {
-        ExcData data1 = new ExcDataImpl(IOException.class, "description");
-        ExcData data2 = new ExcDataImpl(IllegalArgumentException.class, "description");
+        ExcData data1 = new ExcData(IOException.class, "description");
+        ExcData data2 = new ExcData(IllegalArgumentException.class, "description");
         Question q1 = new WhichPackage(data1);
         Question q2 = new WhichPackage(data2);
         Question q3 = new WhichPackage(data1);

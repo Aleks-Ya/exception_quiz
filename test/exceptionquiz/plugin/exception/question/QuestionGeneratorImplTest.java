@@ -14,7 +14,7 @@ public class QuestionGeneratorImplTest {
     @Test(timeout = 1000)
     public void randomQuestion() throws Exception {
         ExcSet excSet = Jcp1ExcSet.getInstance();
-        QuestionGenerator rnd = new QuestionGeneratorImpl(excSet, null);
+        QuestionGeneratorImpl rnd = new QuestionGeneratorImpl(excSet, null);
         Set<Class> wasQuestionClass = new HashSet<>(4);
         while (wasQuestionClass.size() != 4) {
             Question q = rnd.randomQuestion();

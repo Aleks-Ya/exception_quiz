@@ -19,7 +19,7 @@ public class QuestionDuplicateBlockerTest {
     public void isDuplicate() {
         int blockerSize = 5;
         DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker(blockerSize);
-        QuestionGenerator generator = new QuestionGeneratorImpl(Jcp1ExcSet.getInstance(), blocker);
+        QuestionGeneratorImpl generator = new QuestionGeneratorImpl(Jcp1ExcSet.getInstance(), blocker);
         int questionCount = 10000;
         List<Question> questions = new ArrayList<>(questionCount);
         for (int i = 0; i < questionCount; i++) {

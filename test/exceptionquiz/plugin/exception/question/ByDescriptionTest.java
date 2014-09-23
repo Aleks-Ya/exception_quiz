@@ -2,7 +2,6 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
-import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 import org.junit.Test;
 
 import java.io.EOFException;
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class ByDescriptionTest {
     @Test
     public void test() {
-        ExcData excData = new ExcDataImpl(EOFException.class, "Signals that an end of file or end of stream has been reached " +
+        ExcData excData = new ExcData(EOFException.class, "Signals that an end of file or end of stream has been reached " +
                 "unexpectedly during input");
         Question q = new ByDescription(excData);
         assertEquals("Which exception is used for \"Signals that an end of file or end of stream has been reached " +

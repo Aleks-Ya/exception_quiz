@@ -2,7 +2,6 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
-import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 import org.junit.Test;
 
 import java.io.EOFException;
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class ParentClassTest {
     @Test
     public void test() {
-        ExcData excData = new ExcDataImpl(EOFException.class, "-");
+        ExcData excData = new ExcData(EOFException.class, "-");
         Question q = new ParentClass(excData);
         assertEquals("What is parent of EOFException?", q.getQuestionText());
         assertEquals("java.io.IOException", q.getAnswerText());

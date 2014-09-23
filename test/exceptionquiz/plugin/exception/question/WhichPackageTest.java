@@ -2,7 +2,6 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
-import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class WhichPackageTest {
 
     @Test
     public void unchecked() {
-        ExcData excData = new ExcDataImpl(IOException.class, "-");
+        ExcData excData = new ExcData(IOException.class, "-");
         Question q = new WhichPackage(excData);
         assertEquals("Which package is IOException located?", q.getQuestionText());
         assertEquals("java.io", q.getAnswerText());

@@ -2,7 +2,6 @@ package exceptionquiz.plugin.exception.excset;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.plugin.exception.ExcSet;
-import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,7 +41,7 @@ public class Jcp1ExcSet implements ExcSet {
     }
 
     protected void add(Class excClass, String excDescription) {
-        set.add(new ExcDataImpl(excClass, excDescription));
+        set.add(new ExcData(excClass, excDescription));
     }
 
     public static Jcp1ExcSet getInstance() {
