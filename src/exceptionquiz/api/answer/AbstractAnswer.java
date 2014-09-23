@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Абстрактный суперкласс для ответов.
+ * todo Переложить в отделный модуль типа AbstractPlugin
  */
 public abstract class AbstractAnswer implements Answer {
     protected final List<String> variants = new ArrayList<>();
