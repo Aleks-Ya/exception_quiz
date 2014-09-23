@@ -1,6 +1,7 @@
-package exceptionquiz.plugin.exception.answer;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Answer;
+import exceptionquiz.plugin.exception.question.PackageNameAnswer;
 import org.junit.Test;
 
 import java.io.IOException;

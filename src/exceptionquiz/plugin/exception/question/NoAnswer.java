@@ -1,11 +1,11 @@
-package exceptionquiz.plugin.exception.answer;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.answer.AbstractAnswer;
 
 /**
  * Правильный ответ "Нет".
  */
-public class NoAnswer extends AbstractAnswer {
+class NoAnswer extends AbstractAnswer {
     private static final NoAnswer INSTANCE = new NoAnswer();
 
     public NoAnswer() {

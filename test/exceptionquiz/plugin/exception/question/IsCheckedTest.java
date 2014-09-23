@@ -2,8 +2,6 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
-import exceptionquiz.plugin.exception.answer.NoAnswer;
-import exceptionquiz.plugin.exception.answer.YesAnswer;
 import org.junit.Test;
 
 import java.io.EOFException;

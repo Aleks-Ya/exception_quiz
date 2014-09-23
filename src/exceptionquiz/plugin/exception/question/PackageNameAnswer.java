@@ -1,11 +1,11 @@
-package exceptionquiz.plugin.exception.answer;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.answer.AbstractAnswer;
 
 /**
  * Ответ: название пакета.
  */
-public class PackageNameAnswer extends AbstractAnswer {
+class PackageNameAnswer extends AbstractAnswer {
 
     public PackageNameAnswer(Class clazz) {
         variants.add(clazz.getPackage().getName());

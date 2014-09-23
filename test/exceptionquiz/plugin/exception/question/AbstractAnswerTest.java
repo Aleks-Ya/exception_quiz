@@ -1,4 +1,4 @@
-package exceptionquiz.plugin.exception.answer;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.application.answer.QuitAnswer;
 import org.junit.Test;
