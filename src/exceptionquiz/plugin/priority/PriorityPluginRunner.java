@@ -8,10 +8,10 @@ import java.util.List;
 /**
  * Инициализирует классы плагина.
  */
-public class PluginRunner implements QuestionGenerator {
+public class PriorityPluginRunner implements QuestionGenerator {
     PriorityGenerator generator;
 
-    public PluginRunner() {
+    public PriorityPluginRunner() {
         List<Operator> operators = OperatorData.getOperators();
         generator = new PriorityGenerator(operators);
     }

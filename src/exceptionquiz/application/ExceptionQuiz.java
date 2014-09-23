@@ -4,15 +4,13 @@ import exceptionquiz.api.Answer;
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
 import exceptionquiz.application.answer.QuitAnswer;
-import exceptionquiz.application.duplicate.QuestionDuplicateBlocker;
 import exceptionquiz.application.formatter.StatisticFormatter;
 import exceptionquiz.application.generator.CompoundGenerator;
 import exceptionquiz.application.inquirer.ConsoleInquirer;
 import exceptionquiz.application.manifest.ManifestReaderImpl;
 import exceptionquiz.application.statistic.StatisticImpl;
-import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
-import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
-import exceptionquiz.plugin.priority.PluginRunner;
+import exceptionquiz.plugin.exception.ExceptionPluginRunner;
+import exceptionquiz.plugin.priority.PriorityPluginRunner;
 
 import java.util.Date;
 
@@ -60,10 +58,8 @@ public class ExceptionQuiz {
     }
 
     private static QuestionGenerator makeGenerator() {
-        Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
-        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
-        QuestionGenerator exceptionGenerator = new QuestionGeneratorImpl(excSet, blocker);
-        QuestionGenerator priorityGenerator = new PluginRunner();
+        QuestionGenerator exceptionGenerator = new ExceptionPluginRunner();
+        QuestionGenerator priorityGenerator = new PriorityPluginRunner();
         return new CompoundGenerator(exceptionGenerator, priorityGenerator);
     }
 }

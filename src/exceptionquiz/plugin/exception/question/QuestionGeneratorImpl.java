@@ -1,7 +1,6 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Question;
-import exceptionquiz.api.QuestionGenerator;
 import exceptionquiz.application.DuplicateBlocker;
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.plugin.exception.ExcSet;
@@ -12,15 +11,14 @@ import java.util.Set;
 /**
  * Генератор случайных исключений.
  */
-public class QuestionGeneratorImpl implements QuestionGenerator {
-    private final ExcData[] excDatas;
-    private final Random random = new Random();
-    private DuplicateBlocker<Question> blocker;
-
+public class QuestionGeneratorImpl {
     /**
      * Количество классов Вопросов.
      */
     private static final int QUESTION_COUNT = 4;
+    private final ExcData[] excDatas;
+    private final Random random = new Random();
+    private DuplicateBlocker<Question> blocker;
 
     public QuestionGeneratorImpl(ExcSet set, DuplicateBlocker<Question> blocker) {
         Set<ExcData> excs = set.getExcs();
@@ -28,7 +26,6 @@ public class QuestionGeneratorImpl implements QuestionGenerator {
         this.blocker = blocker;
     }
 
-    @Override
     public Question randomQuestion() {
         if (blocker != null) {
             Question q;
