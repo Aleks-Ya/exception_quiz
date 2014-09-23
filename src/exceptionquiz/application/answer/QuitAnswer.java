@@ -1,5 +1,7 @@
 package exceptionquiz.application.answer;
 
+import exceptionquiz.api.answer.AbstractAnswer;
+
 /**
  * Выход из приложения.
  */

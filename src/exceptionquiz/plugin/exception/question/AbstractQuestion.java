@@ -1,7 +1,7 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Question;
-import exceptionquiz.application.Answer;
+import exceptionquiz.api.Answer;
 
 /**
  * Абстрактный суперкласс для вопросов.

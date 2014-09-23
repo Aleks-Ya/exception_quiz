@@ -1,7 +1,5 @@
 package exceptionquiz.api;
 
-import exceptionquiz.application.Answer;
-
 /**
  * Вопрос.
  */

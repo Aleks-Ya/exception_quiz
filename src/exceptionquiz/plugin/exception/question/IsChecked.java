@@ -1,8 +1,8 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.plugin.exception.ExcData;
-import exceptionquiz.application.answer.NoAnswer;
-import exceptionquiz.application.answer.YesAnswer;
+import exceptionquiz.plugin.exception.answer.NoAnswer;
+import exceptionquiz.plugin.exception.answer.YesAnswer;
 
 /**
  * Вопрос.

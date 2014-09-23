@@ -1,6 +1,6 @@
-package exceptionquiz.application.answer;
+package exceptionquiz.plugin.exception.answer;
 
-import exceptionquiz.application.answer.*;
+import exceptionquiz.application.answer.QuitAnswer;
 import org.junit.Test;
 
 import java.io.IOException;

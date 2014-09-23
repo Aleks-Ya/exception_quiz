@@ -1,4 +1,6 @@
-package exceptionquiz.application.answer;
+package exceptionquiz.plugin.exception.answer;
+
+import exceptionquiz.api.answer.AbstractAnswer;
 
 /**
  * Ответ: название пакета и класса.

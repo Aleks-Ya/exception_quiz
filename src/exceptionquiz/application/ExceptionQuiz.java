@@ -1,5 +1,6 @@
 package exceptionquiz.application;
 
+import exceptionquiz.api.Answer;
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
 import exceptionquiz.application.answer.QuitAnswer;

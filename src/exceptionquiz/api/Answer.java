@@ -1,4 +1,4 @@
-package exceptionquiz.application;
+package exceptionquiz.api;
 
 /**
  * Принимаемый вариант ответа

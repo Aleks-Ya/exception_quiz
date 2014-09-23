@@ -1,6 +1,6 @@
-package exceptionquiz.application.answer;
+package exceptionquiz.api.answer;
 
-import exceptionquiz.application.Answer;
+import exceptionquiz.api.Answer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Абстрактный суперкласс для ответов.
  */
-abstract class AbstractAnswer implements Answer {
+public abstract class AbstractAnswer implements Answer {
     protected final List<String> variants = new ArrayList<>();
     protected boolean ignoreCase = true;
 
