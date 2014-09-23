@@ -1,5 +1,6 @@
-package exceptionquiz.api;
+package exceptionquiz.plugin.exception.question;
 
+import exceptionquiz.api.Question;
 import exceptionquiz.application.Answer;
 
 /**
