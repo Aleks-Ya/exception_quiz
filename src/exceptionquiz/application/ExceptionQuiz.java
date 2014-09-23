@@ -1,16 +1,15 @@
 package exceptionquiz.application;
 
-import exceptionquiz.application.answer.QuitAnswer;
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.application.*;
+import exceptionquiz.application.answer.QuitAnswer;
 import exceptionquiz.application.duplicate.QuestionDuplicateBlocker;
-import exceptionquiz.exception.excset.Jcp1ExcSet;
 import exceptionquiz.application.formatter.StatisticFormatter;
 import exceptionquiz.application.inquirer.ConsoleInquirer;
 import exceptionquiz.application.manifest.ManifestReaderImpl;
-import exceptionquiz.exception.question.QuestionGeneratorImpl;
 import exceptionquiz.application.statistic.StatisticImpl;
+import exceptionquiz.exception.excset.Jcp1ExcSet;
+import exceptionquiz.exception.question.QuestionGeneratorImpl;
 
 import java.util.Date;
 
@@ -21,6 +20,7 @@ import java.util.Date;
  * todo Приоритизировать исключения, чтобы более сложные повторялись чаще (NumberFormatException, ExceptionInInitializerError, NoClassDefError, ClassNotFoundException, OutOfMemoryError).
  * todo Покрыть API консоли оберткой и протестировать ConsoleInquirer
  * todo При 0 отвеченных вопросов выводить продолжительность на вопрос 0. Сейчас: Duration per question (sec): 2
+ * todo Подгружать плагины с помощью reflection
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
