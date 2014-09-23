@@ -6,11 +6,13 @@ import exceptionquiz.api.QuestionGenerator;
 import exceptionquiz.application.answer.QuitAnswer;
 import exceptionquiz.application.duplicate.QuestionDuplicateBlocker;
 import exceptionquiz.application.formatter.StatisticFormatter;
+import exceptionquiz.application.generator.CompoundGenerator;
 import exceptionquiz.application.inquirer.ConsoleInquirer;
 import exceptionquiz.application.manifest.ManifestReaderImpl;
 import exceptionquiz.application.statistic.StatisticImpl;
 import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
 import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
+import exceptionquiz.plugin.priority.PluginRunner;
 
 import java.util.Date;
 
@@ -33,9 +35,7 @@ public class ExceptionQuiz {
     public static void main(String[] args) {
         final Statistic statistic = new StatisticImpl();
         statistic.setStartTime(new Date());
-        Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
-        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
-        QuestionGenerator generator = new QuestionGeneratorImpl(excSet, blocker);
+        QuestionGenerator generator = makeGenerator();
         Formatter<Statistic> formatter = new StatisticFormatter();
         final ManifestReader manifest = new ManifestReaderImpl();
         String message = String.format("\n\nEXCEPTION QUIZ v%s\nEnter \"q\" for exit\n", manifest.getVersion());
@@ -57,5 +57,13 @@ public class ExceptionQuiz {
                 inquirer.showRightAnswerText("MISTAKE: " + question.getAnswerText());
             }
         }
+    }
+
+    private static QuestionGenerator makeGenerator() {
+        Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
+        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
+        QuestionGenerator exceptionGenerator = new QuestionGeneratorImpl(excSet, blocker);
+        QuestionGenerator priorityGenerator = new PluginRunner();
+        return new CompoundGenerator(exceptionGenerator, priorityGenerator);
     }
 }

@@ -15,7 +15,7 @@ class Operator {
     private String description;
 
     /**
-     * Приоритет оператора (0 - минимальный).
+     * Приоритет оператора (1 - максимальный).
      */
     private int priority;
 

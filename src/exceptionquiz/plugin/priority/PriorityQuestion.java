@@ -21,7 +21,7 @@ class PriorityQuestion implements Question {
 
     @Override
     public String getQuestionText() {
-        return String.format("Which operator has more priority?%n0 equal priority%n1 %s0 %n 2 %s",
+        return String.format("Which operator has more priority?%n 1 %s%n 2 %s%n 0 equal priority",
                 leftFullName, rightFullName);
     }
 
@@ -40,7 +40,7 @@ class PriorityQuestion implements Question {
     public Answer getRightAnswer() {
         if (leftPriority == rightPriority) {
             return ZeroAnswer.getInstance();
-        } else if (leftPriority > rightPriority) {
+        } else if (leftPriority < rightPriority) {
             return OneAnswer.getInstance();
         } else {
             return TwoAnswer.getInstance();
