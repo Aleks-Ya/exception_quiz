@@ -3,8 +3,8 @@ package exceptionquiz.application.duplicate;
 import exceptionquiz.application.DuplicateBlocker;
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.exception.excset.Jcp1ExcSet;
-import exceptionquiz.exception.question.QuestionGeneratorImpl;
+import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
+import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package exceptionquiz.exception.excset;
+package exceptionquiz.plugin.exception.excset;
 
 import java.text.ParseException;
 

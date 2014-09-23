@@ -1,6 +1,6 @@
-package exceptionquiz.exception.excset;
+package exceptionquiz.plugin.exception.excset;
 
-import exceptionquiz.exception.ExcSet;
+import exceptionquiz.plugin.exception.ExcSet;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

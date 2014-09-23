@@ -8,8 +8,8 @@ import exceptionquiz.application.formatter.StatisticFormatter;
 import exceptionquiz.application.inquirer.ConsoleInquirer;
 import exceptionquiz.application.manifest.ManifestReaderImpl;
 import exceptionquiz.application.statistic.StatisticImpl;
-import exceptionquiz.exception.excset.Jcp1ExcSet;
-import exceptionquiz.exception.question.QuestionGeneratorImpl;
+import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
+import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
 
 import java.util.Date;
 

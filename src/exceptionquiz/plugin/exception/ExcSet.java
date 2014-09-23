@@ -1,4 +1,4 @@
-package exceptionquiz.exception;
+package exceptionquiz.plugin.exception;
 
 import java.util.Set;
 

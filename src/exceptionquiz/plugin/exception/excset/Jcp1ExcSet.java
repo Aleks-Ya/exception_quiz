@@ -1,8 +1,8 @@
-package exceptionquiz.exception.excset;
+package exceptionquiz.plugin.exception.excset;
 
-import exceptionquiz.exception.ExcData;
-import exceptionquiz.exception.ExcSet;
-import exceptionquiz.exception.excdata.ExcDataImpl;
+import exceptionquiz.plugin.exception.ExcData;
+import exceptionquiz.plugin.exception.ExcSet;
+import exceptionquiz.plugin.exception.excdata.ExcDataImpl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

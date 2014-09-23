@@ -1,10 +1,10 @@
-package exceptionquiz.exception.question;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
 import exceptionquiz.application.DuplicateBlocker;
-import exceptionquiz.exception.ExcData;
-import exceptionquiz.exception.ExcSet;
+import exceptionquiz.plugin.exception.ExcData;
+import exceptionquiz.plugin.exception.ExcSet;
 
 import java.util.Random;
 import java.util.Set;

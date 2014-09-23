@@ -1,7 +1,7 @@
-package exceptionquiz.exception.question;
+package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.AbstractQuestion;
-import exceptionquiz.exception.ExcData;
+import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.application.answer.PackageAndClassNameAnswer;
 
 /**

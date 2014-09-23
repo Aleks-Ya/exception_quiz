@@ -1,6 +1,6 @@
-package exceptionquiz.exception.excdata;
+package exceptionquiz.plugin.exception.excdata;
 
-import exceptionquiz.exception.ExcData;
+import exceptionquiz.plugin.exception.ExcData;
 
 /**
  * Данные об исключении.
