@@ -6,7 +6,7 @@ import exceptionquiz.api.Answer;
 /**
  * Абстрактный суперкласс для вопросов.
  */
-public abstract class AbstractQuestion implements Question {
+abstract class AbstractQuestion implements Question {
     protected Answer rightAnswer;
     protected final Class exceptionClass;
 
