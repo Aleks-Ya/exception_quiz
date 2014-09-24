@@ -12,7 +12,7 @@ public class PriorityPluginRunner implements QuestionGenerator {
     PriorityGenerator generator;
 
     public PriorityPluginRunner() {
-        List<Operator> operators = OperatorData.getOperators();
+        List<Operator> operators = OcaOperatorData.getOperators();
         generator = new PriorityGenerator(operators);
     }
 
