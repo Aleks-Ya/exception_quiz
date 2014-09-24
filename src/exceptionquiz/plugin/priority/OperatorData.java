@@ -56,11 +56,11 @@ class OperatorData {
         OPERATORS.add(new Operator("^", "boolean (logical) XOR", 9, LEFT));
 
         OPERATORS.add(new Operator("|", "bitwise OR", 10, LEFT));
-        OPERATORS.add(new Operator("||", "boolean (logical) OR", 10, LEFT));
+        OPERATORS.add(new Operator("|", "boolean (logical) OR", 10, LEFT));
 
         OPERATORS.add(new Operator("&&", "boolean (logical) AND", 11, LEFT));
 
-        OPERATORS.add(new Operator("||", "boolean (logical) AND", 12, LEFT));
+        OPERATORS.add(new Operator("||", "boolean (logical) OR", 12, LEFT));
 
         OPERATORS.add(new Operator("?:", "conditional", 13, RIGHT));
 
