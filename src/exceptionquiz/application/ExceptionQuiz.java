@@ -23,6 +23,7 @@ import java.util.Date;
  * todo При 0 отвеченных вопросов выводить продолжительность на вопрос 0. Сейчас: Duration per question (sec): 2
  * todo Подгружать плагины с помощью reflection
  * todo Разделить на 3 gradle-проекта
+ * todo Механизм конфигурирования плагинов (Programmer I или II)
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();
