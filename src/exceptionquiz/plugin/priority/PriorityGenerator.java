@@ -1,6 +1,7 @@
 package exceptionquiz.plugin.priority;
 
 import exceptionquiz.api.Question;
+import exceptionquiz.api.QuestionGenerator;
 
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.Random;
 /**
  * Генератор вопросов о приоритетах операторов Java.
  */
-class PriorityGenerator {
+class PriorityGenerator implements QuestionGenerator {
     private final Random random = new Random();
     private final List<Operator> operators;
 
