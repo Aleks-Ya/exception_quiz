@@ -10,6 +10,7 @@ import exceptionquiz.application.inquirer.ConsoleInquirer;
 import exceptionquiz.application.manifest.ManifestReaderImpl;
 import exceptionquiz.application.statistic.StatisticImpl;
 import exceptionquiz.plugin.exception.ExceptionPluginRunner;
+import exceptionquiz.plugin.keyword.KeywordPluginRunner;
 import exceptionquiz.plugin.priority.PriorityPluginRunner;
 
 import java.util.Date;
@@ -61,6 +62,7 @@ public class ExceptionQuiz {
     private static QuestionGenerator makeGenerator() {
         QuestionGenerator exceptionGenerator = new ExceptionPluginRunner();
         QuestionGenerator priorityGenerator = new PriorityPluginRunner();
-        return new CompoundGenerator(exceptionGenerator, priorityGenerator);
+        QuestionGenerator keywordGenerator = new KeywordPluginRunner();
+        return new CompoundGenerator(exceptionGenerator, priorityGenerator, keywordGenerator);
     }
 }

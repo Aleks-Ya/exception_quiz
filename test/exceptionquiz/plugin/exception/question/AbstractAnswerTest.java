@@ -1,5 +1,7 @@
 package exceptionquiz.plugin.exception.question;
 
+import exceptionquiz.api.answer.NoAnswer;
+import exceptionquiz.api.answer.YesAnswer;
 import exceptionquiz.application.answer.QuitAnswer;
 import org.junit.Test;
 

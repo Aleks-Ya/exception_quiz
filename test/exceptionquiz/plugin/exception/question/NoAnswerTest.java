@@ -1,7 +1,7 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Answer;
-import exceptionquiz.plugin.exception.question.NoAnswer;
+import exceptionquiz.api.answer.NoAnswer;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
