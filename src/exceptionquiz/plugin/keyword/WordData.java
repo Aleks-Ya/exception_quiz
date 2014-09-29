@@ -43,26 +43,48 @@ class WordData {
             notKeyWord("Byte"),
             notKeyWord("Char"),
             notKeyWord("Character"),
+            notKeyWord("character"),
             notKeyWord("Short"),
             notKeyWord("Long"),
             notKeyWord("Int"),
             notKeyWord("Integer"),
+            notKeyWord("integer"),
             notKeyWord("Float"),
             notKeyWord("Double"),
             notKeyWord("Enum"),
-            notKeyWord("implement")
+            notKeyWord("constructor"),
+            notKeyWord("Constructor"),
+            notKeyWord("implement"),
+            notKeyWord("ArrayList"),
+            notKeyWord("+"),
+            notKeyWord("-"),
+            notKeyWord("/"),
+            notKeyWord("*"),
+            notKeyWord("%"),
+            notKeyWord("="),
+            notKeyWord("=="),
+            notKeyWord("list"),
+            notKeyWord("List")
     );
-    private static final List<Word> ALL_WORDS = new ArrayList<>();
+    private static final WordData INSTANCE = new WordData();
 
-    static {
-        ALL_WORDS.addAll(KEY_WORDS);
-        ALL_WORDS.addAll(NOT_KEY_WORDS);
-    }
+    private final List<Word> allWords = new ArrayList<>();
 
     private WordData() {
+        checkDuplicates(KEY_WORDS, NOT_KEY_WORDS);
+        allWords.addAll(KEY_WORDS);
+        allWords.addAll(NOT_KEY_WORDS);
     }
 
     static List<Word> getWords() {
-        return ALL_WORDS;
+        return INSTANCE.allWords;
+    }
+
+    private void checkDuplicates(List<Word> list1, List<Word> list2) {
+        for (Word word1 : list1) {
+            if (list2.contains(word1)) {
+                throw new RuntimeException("Duplicate word: " + word1);
+            }
+        }
     }
 }
