@@ -9,6 +9,7 @@ import static exceptionquiz.plugin.keyword.Word.notKeyWord;
 
 /**
  * Хранит набор ключевых слов Java и не ключевых (для запутывания).
+ * todo Объединить правильные и неправильные слова, чтобы, в случае ошибки, выводить правильную форму слова.
  */
 class WordData {
     /**
