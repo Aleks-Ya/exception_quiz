@@ -2,7 +2,7 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.answer.NoAnswer;
 import exceptionquiz.api.answer.YesAnswer;
-import exceptionquiz.application.answer.QuitAnswer;
+import exceptionquiz.application.QuitAnswer;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotEquals;
 public class AbstractAnswerTest {
 
     @Test
-    public void equals() {
+    public void equals() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         //YesAnswer и NoAnswer
         assertEquals(YesAnswer.getInstance(), YesAnswer.getInstance());
         assertNotEquals(YesAnswer.getInstance(), NoAnswer.getInstance());

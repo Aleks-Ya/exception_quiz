@@ -1,12 +1,9 @@
-package exceptionquiz.application.formatter;
-
-import exceptionquiz.application.Formatter;
-import exceptionquiz.application.Statistic;
+package exceptionquiz.application;
 
 /**
  * Представляет Статистику в виде строки для вывода на консоль.
  */
-public class StatisticFormatter implements Formatter<Statistic> {
+class StatisticFormatter implements Formatter<Statistic> {
     private static final int SECONDS_IN_MINUTE = 60;
 
     @Override

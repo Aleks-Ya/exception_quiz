@@ -5,7 +5,7 @@ import exceptionquiz.api.Question;
 /**
  * Опросник.
  */
-public interface Inquirer {
+interface Inquirer {
     void showQuestionText(Question question);
 
     String takeAnswerText(String prompt);

@@ -1,7 +1,6 @@
-package exceptionquiz.application.duplicate;
+package exceptionquiz.api.duplicate;
 
 import exceptionquiz.api.Question;
-import exceptionquiz.application.DuplicateBlocker;
 import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
 import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
 import org.junit.Test;

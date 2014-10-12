@@ -1,6 +1,5 @@
-package exceptionquiz.application.statistic;
+package exceptionquiz.application;
 
-import exceptionquiz.application.Statistic;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,8 +10,8 @@ import static com.googlecode.catchexception.CatchException.verifyException;
 import static org.junit.Assert.assertEquals;
 
 public class StatisticImplTest {
-    private final Statistic st = new StatisticImpl();
     private static final int DURATION = 300;
+    private final Statistic st = new StatisticImpl();
     private Date startTime;
     private Date finishTime;
 

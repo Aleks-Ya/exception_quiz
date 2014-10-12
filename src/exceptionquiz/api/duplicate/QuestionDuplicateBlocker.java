@@ -1,6 +1,5 @@
-package exceptionquiz.application.duplicate;
+package exceptionquiz.api.duplicate;
 
-import exceptionquiz.application.DuplicateBlocker;
 import exceptionquiz.api.Question;
 
 import java.util.ArrayList;

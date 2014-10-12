@@ -3,12 +3,6 @@ package exceptionquiz.application;
 import exceptionquiz.api.Answer;
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.application.answer.QuitAnswer;
-import exceptionquiz.application.formatter.StatisticFormatter;
-import exceptionquiz.application.generator.CompoundGenerator;
-import exceptionquiz.application.inquirer.ConsoleInquirer;
-import exceptionquiz.application.manifest.ManifestReaderImpl;
-import exceptionquiz.application.statistic.StatisticImpl;
 import exceptionquiz.plugin.exception.ExceptionPluginRunner;
 import exceptionquiz.plugin.keyword.KeywordPluginRunner;
 import exceptionquiz.plugin.priority.PriorityPluginRunner;
@@ -23,8 +17,9 @@ import java.util.Date;
  * todo Покрыть API консоли оберткой и протестировать ConsoleInquirer
  * todo При 0 отвеченных вопросов выводить продолжительность на вопрос 0. Сейчас: Duration per question (sec): 2
  * todo Подгружать плагины с помощью reflection
- * todo Разделить на 3 gradle-проекта
+ * todo Разделить на 5 gradle-проектов
  * todo Механизм конфигурирования плагинов (Programmer I или II)
+ * todo Использовать DuplicateBlocker в плагинах Keyword и Priority, а лучше - вынести в ExceptionQuiz
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();

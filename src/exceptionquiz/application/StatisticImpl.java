@@ -1,24 +1,12 @@
-package exceptionquiz.application.statistic;
-
-import exceptionquiz.application.Statistic;
+package exceptionquiz.application;
 
 import java.util.Date;
 
-public class StatisticImpl implements Statistic {
+class StatisticImpl implements Statistic {
     private Date startTime;
     private Date finishTime;
     private int rightAnswers;
     private int mistakeAnswers;
-
-    @Override
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    @Override
-    public void setFinishTime(Date finishTime) {
-        this.finishTime = finishTime;
-    }
 
     @Override
     public Date getStartTime() {
@@ -26,8 +14,18 @@ public class StatisticImpl implements Statistic {
     }
 
     @Override
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    @Override
     public Date getFinishTime() {
         return finishTime;
+    }
+
+    @Override
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 
     @Override

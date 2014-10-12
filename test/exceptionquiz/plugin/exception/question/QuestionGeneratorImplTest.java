@@ -1,8 +1,7 @@
 package exceptionquiz.plugin.exception.question;
 
-import exceptionquiz.plugin.exception.ExcSet;
 import exceptionquiz.api.Question;
-import exceptionquiz.api.QuestionGenerator;
+import exceptionquiz.plugin.exception.ExcSet;
 import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
 import org.junit.Test;
 

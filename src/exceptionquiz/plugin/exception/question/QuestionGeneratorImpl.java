@@ -2,7 +2,7 @@ package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.application.DuplicateBlocker;
+import exceptionquiz.api.duplicate.DuplicateBlocker;
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.plugin.exception.ExcSet;
 

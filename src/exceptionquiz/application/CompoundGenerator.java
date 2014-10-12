@@ -1,4 +1,4 @@
-package exceptionquiz.application.generator;
+package exceptionquiz.application;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  * Генератор вопросов на основе нескольких других генераторах.
  */
-public class CompoundGenerator implements QuestionGenerator {
+class CompoundGenerator implements QuestionGenerator {
     private final List<QuestionGenerator> generators = new ArrayList<>();
     private final Random random = new Random();
 

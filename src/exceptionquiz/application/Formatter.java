@@ -3,6 +3,6 @@ package exceptionquiz.application;
 /**
  * Представляет объект в виде строки.
  */
-public interface Formatter<T> {
+interface Formatter<T> {
     String format(T obj);
 }

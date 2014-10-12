@@ -3,6 +3,6 @@ package exceptionquiz.application;
 /**
  * Обрабатывает содержимое jar-манифеста.
  */
-public interface ManifestReader {
+interface ManifestReader {
     String getVersion();
 }

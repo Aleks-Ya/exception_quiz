@@ -1,6 +1,4 @@
-package exceptionquiz.application.manifest;
-
-import exceptionquiz.application.ManifestReader;
+package exceptionquiz.application;
 
 import java.io.IOException;
 import java.net.URL;
@@ -8,7 +6,7 @@ import java.net.URLClassLoader;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
-public class ManifestReaderImpl implements ManifestReader {
+class ManifestReaderImpl implements ManifestReader {
     private String version;
 
     public ManifestReaderImpl() {

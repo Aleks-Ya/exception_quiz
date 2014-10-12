@@ -5,15 +5,15 @@ import java.util.Date;
 /**
  * Подсчитывает статистику по занятию.
  */
-public interface Statistic {
-
-    void setStartTime(Date startTime);
-
-    void setFinishTime(Date finishTime);
+interface Statistic {
 
     Date getStartTime();
 
+    void setStartTime(Date startTime);
+
     Date getFinishTime();
+
+    void setFinishTime(Date finishTime);
 
     /**
      * Длительность занятия в секундах.
