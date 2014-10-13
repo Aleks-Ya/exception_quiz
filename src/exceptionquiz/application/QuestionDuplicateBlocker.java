@@ -10,14 +10,17 @@ import java.util.List;
  */
 class QuestionDuplicateBlocker implements DuplicateBlocker<Question> {
     private final List<Question> questions = new ArrayList<>();
-    private final int size;
+    /**
+     * Через limit вопросов блокировка снимается.
+     */
+    private final int limit;
 
     public QuestionDuplicateBlocker() {
         this(5);
     }
 
-    public QuestionDuplicateBlocker(int size) {
-        this.size = size;
+    public QuestionDuplicateBlocker(int limit) {
+        this.limit = limit;
     }
 
     @Override
@@ -27,7 +30,7 @@ class QuestionDuplicateBlocker implements DuplicateBlocker<Question> {
                 return true;
             }
         }
-        if (questions.size() >= size) {
+        if (questions.size() >= limit) {
             questions.remove(0);
         }
         questions.add(obj);
