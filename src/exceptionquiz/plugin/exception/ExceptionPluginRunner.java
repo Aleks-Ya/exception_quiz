@@ -2,8 +2,6 @@ package exceptionquiz.plugin.exception;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.api.duplicate.DuplicateBlocker;
-import exceptionquiz.api.duplicate.QuestionDuplicateBlocker;
 import exceptionquiz.plugin.exception.excset.Jcp1ExcSet;
 import exceptionquiz.plugin.exception.question.QuestionGeneratorImpl;
 
@@ -15,8 +13,7 @@ public class ExceptionPluginRunner implements QuestionGenerator {
 
     public ExceptionPluginRunner() {
         Jcp1ExcSet excSet = Jcp1ExcSet.getInstance();
-        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
-        this.generator = new QuestionGeneratorImpl(excSet, blocker);
+        this.generator = new QuestionGeneratorImpl(excSet);
     }
 
     @Override

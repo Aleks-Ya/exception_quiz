@@ -1,4 +1,4 @@
-package exceptionquiz.api.duplicate;
+package exceptionquiz.application;
 
 import exceptionquiz.api.Question;
 
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Блокирует повторяющиеся вопросы.
  */
-public class QuestionDuplicateBlocker implements DuplicateBlocker<Question> {
+class QuestionDuplicateBlocker implements DuplicateBlocker<Question> {
     private final List<Question> questions = new ArrayList<>();
     private final int size;
 

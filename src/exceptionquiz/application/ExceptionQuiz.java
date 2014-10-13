@@ -36,8 +36,12 @@ public class ExceptionQuiz {
         String message = String.format("\n\nEXCEPTION QUIZ v%s\nEnter \"q\" for exit\n", manifest.getVersion());
         Inquirer inquirer = new ConsoleInquirer(statistic, formatter);
         inquirer.showInfoMessage(message);
+        DuplicateBlocker<Question> blocker = new QuestionDuplicateBlocker();
         while (true) {
-            Question question = generator.randomQuestion();
+            Question question;
+            do {
+                question = generator.randomQuestion();
+            } while (blocker.isDuplicate(question));
             inquirer.showQuestionText(question);
             String answer = inquirer.takeAnswerText(question.getPrompt());
             if (QUIT_ANSWER.isRight(answer)) {

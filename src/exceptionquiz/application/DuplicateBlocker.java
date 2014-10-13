@@ -1,8 +1,8 @@
-package exceptionquiz.api.duplicate;
+package exceptionquiz.application;
 
 /**
  * Блокировщик дубликатов.
  */
-public interface DuplicateBlocker<T> {
+interface DuplicateBlocker<T> {
     boolean isDuplicate(T obj);
 }
