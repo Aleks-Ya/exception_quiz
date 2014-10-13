@@ -1,12 +1,14 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Answer;
-import exceptionquiz.plugin.exception.question.PackageNameAnswer;
+import exceptionquiz.api.answer.YesAnswer;
 import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PackageNameAnswerTest {
@@ -19,5 +21,12 @@ public class PackageNameAnswerTest {
         assertFalse(answer.isRight("java.IO"));
         assertFalse(answer.isRight(""));
         assertFalse(answer.isRight(null));
+    }
+
+    @Test
+    public void isEquals() {
+        assertEquals(new PackageNameAnswer(IOException.class), new PackageNameAnswer(IOException.class));
+        assertNotEquals(new PackageNameAnswer(IOException.class), new PackageNameAnswer(Exception.class));
+        assertNotEquals(new PackageNameAnswer(Exception.class), YesAnswer.getInstance());
     }
 }

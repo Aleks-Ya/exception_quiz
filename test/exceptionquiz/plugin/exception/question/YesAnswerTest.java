@@ -1,10 +1,14 @@
 package exceptionquiz.plugin.exception.question;
 
 import exceptionquiz.api.Answer;
+import exceptionquiz.api.answer.NoAnswer;
 import exceptionquiz.api.answer.YesAnswer;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class YesAnswerTest {
 
@@ -24,4 +28,9 @@ public class YesAnswerTest {
         assertFalse(answer.isRight("no"));
     }
 
+    @Test
+    public void isEquals() {
+        assertEquals(YesAnswer.getInstance(), YesAnswer.getInstance());
+        assertNotEquals(YesAnswer.getInstance(), NoAnswer.getInstance());
+    }
 }
