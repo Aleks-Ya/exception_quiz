@@ -19,7 +19,6 @@ import java.util.Date;
  * todo Подгружать плагины с помощью reflection
  * todo Разделить на 5 gradle-проектов
  * todo Механизм конфигурирования плагинов (Programmer I или II)
- * todo Использовать DuplicateBlocker в плагинах Keyword и Priority, а лучше - вынести в ExceptionQuiz
  */
 public class ExceptionQuiz {
     private static final Answer QUIT_ANSWER = new QuitAnswer();

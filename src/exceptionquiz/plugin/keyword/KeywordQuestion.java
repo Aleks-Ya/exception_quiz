@@ -7,6 +7,7 @@ import exceptionquiz.api.answer.YesAnswer;
 
 /**
  * Вопрос "Ключевые слова Java".
+ * todo Переопределить equals, чтобы срабатывал DuplicateBlocker
  */
 class KeywordQuestion implements Question {
     private final String word;

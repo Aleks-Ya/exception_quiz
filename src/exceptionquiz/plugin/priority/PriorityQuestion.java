@@ -5,6 +5,7 @@ import exceptionquiz.api.Question;
 
 /**
  * Вопрос о приритетах операторов Java.
+ * todo Переопределить equals, чтобы срабатывал DuplicateBlocker
  */
 class PriorityQuestion implements Question {
     private final String leftFullName;
