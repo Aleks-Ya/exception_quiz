@@ -1,4 +1,4 @@
-package exceptionquiz.plugin.exception.question;
+package exceptionquiz.plugin.exception;
 
 import exceptionquiz.api.answer.AbstractAnswer;
 

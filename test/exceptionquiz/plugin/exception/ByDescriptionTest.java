@@ -1,5 +1,6 @@
-package exceptionquiz.plugin.exception.question;
+package exceptionquiz.plugin.exception;
 
+import exceptionquiz.plugin.exception.ByDescription;
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
 import org.junit.Test;

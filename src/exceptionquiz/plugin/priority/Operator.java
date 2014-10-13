@@ -7,19 +7,19 @@ class Operator {
     /**
      * Обозначение оператора.
      */
-    private String symbol;
+    private final String symbol;
 
     /**
      * Описание назначения оператора.
      */
-    private String description;
+    private final String description;
 
     /**
      * Приоритет оператора (1 - максимальный).
      */
-    private int priority;
+    private final int priority;
 
-    private Associativity associativity;
+    private final Associativity associativity;
 
     public Operator(String symbol, String description, int priority, Associativity associativity) {
         this.symbol = symbol;

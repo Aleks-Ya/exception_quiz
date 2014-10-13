@@ -5,6 +5,6 @@ import java.util.Set;
 /**
  * Набор исключений.
  */
-public interface ExcSet {
+interface ExcSet {
     Set<ExcData> getExcs();
 }

@@ -4,7 +4,7 @@ package exceptionquiz.plugin.exception;
 /**
  * Данные об исключении.
  */
-public class ExcData {
+class ExcData {
     private final String excDescription;
     private final Class excClass;
 

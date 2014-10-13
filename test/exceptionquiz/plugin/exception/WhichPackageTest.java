@@ -1,7 +1,8 @@
-package exceptionquiz.plugin.exception.question;
+package exceptionquiz.plugin.exception;
 
 import exceptionquiz.plugin.exception.ExcData;
 import exceptionquiz.api.Question;
+import exceptionquiz.plugin.exception.WhichPackage;
 import org.junit.Test;
 
 import java.io.IOException;

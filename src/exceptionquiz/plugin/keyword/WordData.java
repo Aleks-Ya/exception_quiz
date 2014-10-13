@@ -86,6 +86,9 @@ class WordData {
         return INSTANCE.allWords;
     }
 
+    /**
+     * Если по ошибке добавили слово в ключевые и НЕключевые, упадет исключение.
+     */
     private void checkDuplicates(List<Word> list1, List<Word> list2) {
         for (Word word1 : list1) {
             if (list2.contains(word1)) {

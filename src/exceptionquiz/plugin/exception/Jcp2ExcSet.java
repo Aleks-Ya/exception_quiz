@@ -1,11 +1,11 @@
-package exceptionquiz.plugin.exception.excset;
+package exceptionquiz.plugin.exception;
 
 import java.text.ParseException;
 
 /**
  * Набор исключений, встречающийся в экзамене Java Programmer II.
  */
-public class Jcp2ExcSet extends Jcp1ExcSet {
+class Jcp2ExcSet extends Jcp1ExcSet {
     private static final Jcp2ExcSet INSTANCE = new Jcp2ExcSet();
 
     private Jcp2ExcSet() {

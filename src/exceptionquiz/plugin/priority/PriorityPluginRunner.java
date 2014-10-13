@@ -9,7 +9,7 @@ import java.util.List;
  * Инициализирует классы плагина.
  */
 public class PriorityPluginRunner implements QuestionGenerator {
-    PriorityGenerator generator;
+    private final PriorityGenerator generator;
 
     public PriorityPluginRunner() {
         List<Operator> operators = OcaOperatorData.getOperators();

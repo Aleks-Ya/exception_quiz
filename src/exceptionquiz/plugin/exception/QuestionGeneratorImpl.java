@@ -1,9 +1,7 @@
-package exceptionquiz.plugin.exception.question;
+package exceptionquiz.plugin.exception;
 
 import exceptionquiz.api.Question;
 import exceptionquiz.api.QuestionGenerator;
-import exceptionquiz.plugin.exception.ExcData;
-import exceptionquiz.plugin.exception.ExcSet;
 
 import java.util.Random;
 import java.util.Set;
@@ -11,7 +9,7 @@ import java.util.Set;
 /**
  * Генератор случайных исключений.
  */
-public class QuestionGeneratorImpl implements QuestionGenerator {
+class QuestionGeneratorImpl implements QuestionGenerator {
     /**
      * Количество классов Вопросов.
      */

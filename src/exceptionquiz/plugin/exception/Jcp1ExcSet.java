@@ -1,7 +1,4 @@
-package exceptionquiz.plugin.exception.excset;
-
-import exceptionquiz.plugin.exception.ExcData;
-import exceptionquiz.plugin.exception.ExcSet;
+package exceptionquiz.plugin.exception;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,7 +8,7 @@ import java.util.Set;
 /**
  * Набор исключений, встречающийся в экзамене Java Programmer I.
  */
-public class Jcp1ExcSet implements ExcSet {
+class Jcp1ExcSet implements ExcSet {
     private static final Jcp1ExcSet INSTANCE = new Jcp1ExcSet();
     private final Set<ExcData> set = new HashSet<>();
 

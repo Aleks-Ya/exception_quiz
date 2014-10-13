@@ -1,6 +1,4 @@
-package exceptionquiz.plugin.exception.question;
-
-import exceptionquiz.plugin.exception.ExcData;
+package exceptionquiz.plugin.exception;
 
 /**
  * Вопрос.
